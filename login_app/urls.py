@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 # @Author: sylvain
 # @Date:   2019-07-08 14:58:03
-# @Last Modified by:   sylvain
-# @Last Modified time: 2019-07-09 14:05:20
+# @Last Modified by:   Sylvain-Yu
+# @Last Modified time: 2019-07-14 17:57:37
 from django.urls import path
 from . import views
 
+#start with "accounts/"
 urlpatterns = [
-    path('', views.main, name='main'),
+    path('', views.reindex, name='reindex'),
+    path('index/',views.index, name = 'index'),
+    path('login/',views.login, name = 'login'),
+    path('register/',views.register, name = 'register'),
+    path('logout/',views.logout, name = 'logout'),
 ]

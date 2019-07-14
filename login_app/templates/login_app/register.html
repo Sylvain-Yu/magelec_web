@@ -3,10 +3,27 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>register page</title>
+    <title>注册</title>
     <link rel="stylesheet" href="">
 </head>
 <body>
-    <p>register page</p>
+    <div style = "margin:15% 40%;">
+        <h1>注册账户</h1>
+        <form action="" method="post" accept-charset="utf-8">{% csrf_token %}
+            <p>
+                <label for = "id_username">用户名:</label>
+                <input type="text" id = "id_username" name="username" placeholder="用户名" autofocus required>
+            </p>
+            <p>
+                <label for = "id_password">密码:</label>
+                <input type="password" id = "id_password" name="password" placeholder="密码" required>  
+            </p>
+            <p>
+                <label for = "id_password">重复密码:</label>
+                <input type="password" id = "id_password2" name="password2" placeholder="密码" required>  
+            </p>
+            <input type="submit" value = "确定">
+        </form>
+    </div>
 </body>
 </html>

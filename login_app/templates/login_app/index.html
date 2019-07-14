@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sylvain's index page</title>
-    {# <link rel="stylesheet" href="{% static %}"> #}
-</head>
-<body>
-    <P> <b>Welcome! </b><br>nice to see you !<br> from sylvain</P>
-</body>
-</html>
+{% extends "login_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    首页
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+    <body>
+    <P> <b>Welcome!</b><br>nice to see you !<br> to {{user.name}}
+    --{{user.sex}}</P>
+    </body>
+{% endblock content %}
