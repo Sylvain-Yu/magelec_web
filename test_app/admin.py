@@ -3,14 +3,12 @@ from . import models
 # Register your models here.
 
 class MotorSimpleInfo(admin.ModelAdmin):
-
-    list_display = ['motor_PN','motor_model','motor_code','highspeed','c_time','comment']
+    list_display = ['motor_PN','motor_model','motor_code','c_time','modify_time','comment']
     search_fields = ['motor_PN','motor_model','motor_code']
     date_hierarchy = 'c_time'
     list_per_page = 50
     empty_value_display = '-空白-'
     list_filter = ['motor_PN','motor_model']
-    fk_fields = 'highspeed'
 
 class HighSpeedInfo(admin.ModelAdmin):
     list_display = ['speed','passornot','c_time','comment']
@@ -22,8 +20,14 @@ class TorqueVsCurrentInfo(admin.ModelAdmin):
     empty_value_display = '-空白-'
     date_hierarchy = 'c_time'
 
-admin.site.site_header = 'MAGELEC 信息管理系统'
+class MotorView(admin.ModelAdmin):
+    """docstring for MotorView"""
+    list_display = ['motorinfo','c_time','modify_time']
+    date_hierarchy = 'c_time'
+
+admin.site.site_header = 'MAGELEC 信息管理后台'
 admin.site.site_title = 'MAGELEC'
+admin.site.register(models.Motor,MotorView)
 admin.site.register(models.MotorInfo,MotorSimpleInfo)
 admin.site.register(models.HighSpeed,HighSpeedInfo)
 admin.site.register(models.CurrentVsTorque,TorqueVsCurrentInfo)

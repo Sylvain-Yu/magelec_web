@@ -1,0 +1,102 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    电机基础信息
+{% endblock title %}
+{% block css %}
+
+    
+{% endblock css %}
+
+{% block content %}
+<br>
+<h3 class="h3 text-justify">电机基础信息</h3>
+<br>
+<form action="{% url 'test_app:basic' %}" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    <table class="table table-responsive-sm table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>测试人员 1</th>
+                <th>测试人员 2</th>
+                <th>环境温度</th>
+                <th>环境湿度</th>
+                <th>电机极数</th>
+                <th>旋变极数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" scope="col"> <select class="form-control" name="tester1">
+
+                    {% for testervalue,testername in testerlist %}
+                        <option value="{{testervalue}}">{{testername}}</option>}
+                    {% endfor %}
+                </select> </td>
+                <td colspan="1" scope="col"> <select class="form-control" name="tester2">
+                    {% for testervalue,testername in testerlist %}
+                        <option value="{{testervalue}}">{{testername}}</option>
+                    {% endfor %}
+                </select> </td>
+                <td colspan="1" scope="col"><input class="form-control" type="number" name="env_temperature" min="0" required></td>
+                <td colspan="1" scope="col"><input class="form-control" type="number" name="env_humidity" min="0" placeholder="0~100" required></td>
+                <td colspan="1" scope="col"><input class="form-control" type="number" name="motor_poles" min="2" required></td>
+                <td colspan="1" scope="col"><input class="form-control" type="number" name="resolver_poles" min="2" required></td>
+            </tr>
+        </tbody>
+        <thead class="thead-dark">
+            <tr>
+                <th>电机零件号</th>
+                <th colspan="2">电机型号</th>
+                <th>电机编码</th>
+                <th>三相相序</th>
+                <th>正转方向</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" scope="col"><input class="form-control" type="text" name="motor_PN" placeholder="M00-000000" required></td>
+                <td colspan="2" scope="col"><input class="form-control" type="text" name="motor_model" placeholder="M00P0-X-00XXXX" required></td>
+                <td colspan="1" scope="col"><input class="form-control" type="text" name="motor_code" placeholder="A00-000-YYMMDD" required></td>
+                <td colspan="1" scope="col"> <select class="form-control" name="phase_connection">
+                    {% for phasevalue,phasename in phaseconnect %}
+                        <option value="{{phasevalue}}" >{{phasename}}</option>
+                    {% endfor %}
+                </select> </td>
+                <td colspan="1" scope="col"> <select class="form-control" name="forward_direct" >
+                    {% for directionvalue,directionname in direction_list %}
+                        <option value="{{directionvalue}}">{{directionname}}</option>
+                    {% endfor %}
+                </select> </td>
+            </tr>
+        </tbody>
+        <thead class="thead-dark">
+            <tr>
+                <th>逆变器型号</th>
+                <th>逆变器序列号</th>
+                <th title="逆变器内置motor_type_options_EEPROM项">逆变器EEPROM</th>
+                <th colspan="3" scope="col">备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="1" scope="col"> <select class="form-control" name="inverter_type">
+                    {% for inverter_tpye_value,inverter_type_name in inverter_type_list %}
+                        <option value="{{inverter_tpye_value}}" >{{inverter_type_name}}</option>
+                    {% endfor %}
+                </select> </td>
+                <td colspan="1" scope="col"><input class="form-control" type="text" name="inverter_serial" required></td>
+                <td colspan="1" scope="col"> <select class="form-control" name="eeprom" >
+                    <option>50</option>
+                    <option>34</option>
+                </select> </td>
+                <td colspan="3" scope="col"><input class="form-control" type="text" name="comment" placeholder="-非必须-"> </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="offset-sm-10">
+        <button class="btn btn-light" type="reset">重置</button>
+        <button class="btn btn-primary" type="submit" name="submit">提交</button> 
+    </div>
+</form>
+{% endblock content %}

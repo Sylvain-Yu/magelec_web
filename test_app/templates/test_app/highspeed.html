@@ -1,0 +1,68 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    高速试验
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="container">
+    <h1 class="h3 text-center">高转速试验</h1>
+    <form  action="{% url 'test_app:highspeed' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th clas="form-text">旋转方向</th>
+                    <th clas="form-text">运行转速</th>
+                    <th clas="form-text">运行时间</th>
+                    <th clas="form-text">冷却温度</th>
+                    <th clas="form-text">冷却流量</th>
+                    <th clas="form-text">是否通过</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td > <select class="form-control" name="rotate_direction" >
+                        {% for directionvalue,directionname in forward_direction_list %}
+                            <option value="{{directionvalue}}">{{directionname}}</option>
+                        {% endfor %}
+                    </select> </td>
+                    <td > <input class="form-control" type="number" name="speed" min="0"> </td>
+                    <td > <input class="form-control" type="time" name="run_time"> </td>
+                    <td > <input class="form-control" type="number" name="cooling_temperature" min="0"></td>
+                    <td > <input class="form-control" type="number" name="flow"> </td>
+                    <td > <input class="form-control" type="checkbox" name="passornot"> </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>RTD1 起始温度</th>
+                    <th>RTD2 起始温度</th>
+                    <th>RTD1 结束温度</th>
+                    <th>RTD2 结束温度</th>
+                    <th colspan="1">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input class="form-control" min="0" type="number" name="RTD1_start_temperature"></td>
+                    <td> <input class="form-control" min="0" type="number" name="RTD2_start_temperature"></td>
+                    <td> <input class="form-control" min="0" type="number" name="RTD1_end_temperature"></td>
+                    <td> <input class="form-control" min="0" type="number" name="RTD2_end_temperature"> </td>
+                    <td colspan="1"> <input class="form-control" type="text" name="comment"> </td>
+                </tr>
+            </tbody>
+        </table>
+            <div class="flex-sm-row offset-sm-11">
+                <button type="submit" class="btn btn-primary" value="submit">提交</button>
+            </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,4 +1,4 @@
-{% extends "login_app/base.html" %}
+{% extends "test_app/base.html" %}
 {% load staticfiles %}
 {% block title %}
     首页
@@ -10,6 +10,5 @@
 {% block content %}
     <body class="text-center">
     <P> <b>Welcome!</b><br>nice to see you !<br>{{user.name}}--{{user.sex}}</P>
-    <a href= "{% url 'test_app:index' %}" title=""> 测试主页</a>
     </body>
 {% endblock content %}

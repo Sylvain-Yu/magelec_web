@@ -18,9 +18,9 @@ from django.urls import path, include
 from login_app import views
 
 urlpatterns = [
+    path('', views.reindex),
+    path('index/',views.reindex),
     path('admin/', admin.site.urls),
     path('account/',include('login_app.urls')),
     path('test/',include('test_app.urls')),
-    path('', views.reindex),
-
 ]

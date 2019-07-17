@@ -22,9 +22,12 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+      data-target="#collapsibleNavbar2"><span class="navbar-toggler-icon"></span>
+      </button>
       <a class ="navbar-brand" href="{% url 'login_app:index' %}" title="磁雷革传动">MAGELEC <small>信息管理系统</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" 
-      data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span>>
+      data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
       <ul class ="navbar-nav">
@@ -38,11 +41,39 @@
       </ul>
       </div>
     </nav>
-
-
+    <div class="row flex-sm-row">
+    <div class="col-sm-2 bg-white navbar-expand-sm">
+      <nav class="nav-tabs text-sm-left">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar2">
+        <ul class="list-group">
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">首页</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:basic' %}">基础信息</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">绝缘性测量</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">反电动势测量</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">短路试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">逆变器标定</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">电特性试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">连续扭矩试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:highspeed' %}">高转速试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">效率试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">结果预览</a></li>
+          <li><a class="nav-link text-secondary" href="#">电机查询</a></li>
+        </ul>
+      </div>
+      </nav>
+      <a class="text-muted text-right nav-link" href="mailto:syu@magelec.cn?subject=feedback" "email me">Contact Me !</a>
     </div>
-    <div class="container">
+    <div class="col-sm-10">
+    <div class="container-fluid">
+      {% if motorinfoobj %}
+        <a class="text-muted offset-sm-11" href="{% url 'test_app:motor_logout' %}"> 切换电机 </a>
+        <a class="text-muted offset-sm-1" href="#">{{motorinfoobj}}</a>
+      {% else %}
+        <a class="text-muted offset-sm-11" href="#" title=""> 选取电机 </a>
+
+      {% endif %}
       {% block content %}{% endblock %}
+    </div>
     </div>
     </div>
 
