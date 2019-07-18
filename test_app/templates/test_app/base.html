@@ -52,12 +52,12 @@
           <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">反电动势测量</a></li>
           <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">短路试验</a></li>
           <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">逆变器标定</a></li>
-          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">电特性试验</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:currentvstorque' %}">电特性试验</a></li>
           <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">连续扭矩试验</a></li>
           <li><a class="nav-link text-secondary" href="{% url 'test_app:highspeed' %}">高转速试验</a></li>
           <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">效率试验</a></li>
-          <li><a class="nav-link text-secondary" href="{% url 'test_app:index' %}">结果预览</a></li>
-          <li><a class="nav-link text-secondary" href="#">电机查询</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:dataview' %}">结果预览</a></li>
+          <li><a class="nav-link text-secondary" href="{% url 'test_app:search' %}">电机查询</a></li>
         </ul>
       </div>
       </nav>
@@ -65,13 +65,14 @@
     </div>
     <div class="col-sm-10">
     <div class="container-fluid">
+      <div class="list-group text-right">
       {% if motorinfoobj %}
-        <a class="text-muted offset-sm-11" href="{% url 'test_app:motor_logout' %}"> 切换电机 </a>
-        <a class="text-muted offset-sm-1" href="#">{{motorinfoobj}}</a>
+        <a class="text-muted" href="{% url 'test_app:motor_logout' %}"> 切换电机 </a>
+        <a class="text-muted" href="#">{{motorinfoobj}}</a>
       {% else %}
-        <a class="text-muted offset-sm-11" href="#" title=""> 选取电机 </a>
-
+        <a class="text-muted offset-sm-11" href="{% url 'test_app:search' %}" title=""> 查询电机 </a>
       {% endif %}
+      </div>
       {% block content %}{% endblock %}
     </div>
     </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from login_app.models import User
 # Create your models here.
 
 
@@ -43,6 +44,7 @@ class MotorInfo(models.Model):
     comment = models.CharField(max_length=128, null=True, blank=True)
     c_time = models.DateTimeField(auto_now_add=True)
     modify_time = models.DateTimeField(auto_now=True)
+    recorder = models.ForeignKey(User,on_delete = models.SET_NULL,null= True)
 
     class Meta:
         ordering = ['-c_time']
@@ -74,7 +76,7 @@ class HighSpeed(models.Model):
     comment = models.CharField(max_length=128, null=True, blank=True)
     c_time = models.DateTimeField(auto_now_add=True)
     modify_time = models.DateTimeField(auto_now=True)
-
+    motorinfo = models.ForeignKey(MotorInfo,on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-c_time']
@@ -90,6 +92,7 @@ class HighSpeed(models.Model):
 
 class CurrentVsTorque(models.Model):
     speed_point = models.IntegerField()
+    current_target = models.IntegerField(null=True)
     forward_direction_list = (('Positive', '正转'),
                               ('Negitive', '反转'),
                               )
@@ -101,9 +104,6 @@ class CurrentVsTorque(models.Model):
                          ('Generation_Speed', '转速模式_跟转'),
                          )
     control_mode = models.CharField(max_length=32, choices=control_mode_list)
-    comment = models.CharField(max_length=128, null=True, blank=True)
-    c_time = models.DateTimeField(auto_now_add=True)
-    modify_time = models.DateTimeField(auto_now=True)
     cooling_type_list = (('Liquid cooling', '冷却液'),
                          ('Air Cooling', '风冷'),
                          )
@@ -113,92 +113,15 @@ class CurrentVsTorque(models.Model):
     winding_temperature_min = models.FloatField()
     winding_temperature_max = models.FloatField()
     dc_bus_voltage = models.IntegerField()
-    max_current_allowed = models.IntegerField(null=True, blank=True)
-    # temperature measured
-    d_50A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_100A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_150A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_200A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_250A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_300A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_350A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_400A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_450A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_500A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_550A_temperature_measured = models.FloatField(null=True, blank=True)
-    d_600A_temperature_measured = models.FloatField(null=True, blank=True)
-    max_current_temperature_measured = models.FloatField(null=True, blank=True)
-    # phase current measured
-    d_50A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_100A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_150A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_200A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_250A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_300A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_350A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_400A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_450A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_500A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_550A_phase_current_measured = models.FloatField(null=True, blank=True)
-    d_600A_phase_current_measured = models.FloatField(null=True, blank=True)
-    max_current_phase_current_measured = models.FloatField(
-        null=True, blank=True)
-    # torque command
-    d_50A_torque_command = models.IntegerField(null=True, blank=True)
-    d_100A_torque_command = models.IntegerField(null=True, blank=True)
-    d_150A_torque_command = models.IntegerField(null=True, blank=True)
-    d_200A_torque_command = models.IntegerField(null=True, blank=True)
-    d_250A_torque_command = models.IntegerField(null=True, blank=True)
-    d_300A_torque_command = models.IntegerField(null=True, blank=True)
-    d_350A_torque_command = models.IntegerField(null=True, blank=True)
-    d_400A_torque_command = models.IntegerField(null=True, blank=True)
-    d_450A_torque_command = models.IntegerField(null=True, blank=True)
-    d_500A_torque_command = models.IntegerField(null=True, blank=True)
-    d_550A_torque_command = models.IntegerField(null=True, blank=True)
-    d_600A_torque_command = models.IntegerField(null=True, blank=True)
-    max_current_torque_command = models.IntegerField(null=True, blank=True)
-    # torque measured
-    d_50A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_100A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_150A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_200A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_250A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_300A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_350A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_400A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_450A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_500A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_550A_torque_measured = models.IntegerField(null=True, blank=True)
-    d_600A_torque_measured = models.IntegerField(null=True, blank=True)
-    max_current_torque_measured = models.IntegerField(null=True, blank=True)
-    # Kt
-    d_50A_Kt = models.FloatField(null=True, blank=True)
-    d_100A_Kt = models.FloatField(null=True, blank=True)
-    d_150A_Kt = models.FloatField(null=True, blank=True)
-    d_200A_Kt = models.FloatField(null=True, blank=True)
-    d_250A_Kt = models.FloatField(null=True, blank=True)
-    d_300A_Kt = models.FloatField(null=True, blank=True)
-    d_350A_Kt = models.FloatField(null=True, blank=True)
-    d_400A_Kt = models.FloatField(null=True, blank=True)
-    d_450A_Kt = models.FloatField(null=True, blank=True)
-    d_500A_Kt = models.FloatField(null=True, blank=True)
-    d_550A_Kt = models.FloatField(null=True, blank=True)
-    d_600A_Kt = models.FloatField(null=True, blank=True)
-    max_current_Kt = models.FloatField(null=True, blank=True)
-    # ke
-    d_50A_Ke = models.FloatField(null=True, blank=True)
-    d_100A_Ke = models.FloatField(null=True, blank=True)
-    d_150A_Ke = models.FloatField(null=True, blank=True)
-    d_200A_Ke = models.FloatField(null=True, blank=True)
-    d_250A_Ke = models.FloatField(null=True, blank=True)
-    d_300A_Ke = models.FloatField(null=True, blank=True)
-    d_350A_Ke = models.FloatField(null=True, blank=True)
-    d_400A_Ke = models.FloatField(null=True, blank=True)
-    d_450A_Ke = models.FloatField(null=True, blank=True)
-    d_500A_Ke = models.FloatField(null=True, blank=True)
-    d_550A_Ke = models.FloatField(null=True, blank=True)
-    d_600A_Ke = models.FloatField(null=True, blank=True)
-    max_current_Ke = models.FloatField(null=True, blank=True)
+    temperature_measured = models.FloatField(null=True)
+    phase_current_measured = models.FloatField(null=True)
+    torque_command = models.IntegerField(null=True)
+    torque_measured = models.IntegerField(null=True)
+    Kt = models.FloatField(null=True)
+    Ke = models.FloatField(null=True)
+    comment = models.CharField(max_length=128, null=True, blank=True)
+    c_time = models.DateTimeField(auto_now_add=True)
+    modify_time = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-c_time']
@@ -207,20 +130,3 @@ class CurrentVsTorque(models.Model):
 
     def __str__(self):
         return str(self.c_time)
-
-
-class Motor(models.Model):
-    """docstring for motor"""
-    motorinfo = models.OneToOneField(MotorInfo,on_delete=models.CASCADE,null=True,blank=True)
-    highspeed = models.ForeignKey(HighSpeed,null= True,related_name='highspeed',on_delete=models.CASCADE)
-    current_vs_torque = models.ManyToManyField(CurrentVsTorque)
-    c_time = models.DateTimeField(auto_now_add=True)
-    modify_time = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ['-c_time']
-        verbose_name = "电机数据关系"
-        verbose_name_plural = "电机数据关系集"
-
-    def __str__(self):
-        return str(self.motorinfo)

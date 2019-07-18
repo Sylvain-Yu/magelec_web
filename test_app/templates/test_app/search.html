@@ -1,0 +1,35 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    高速试验
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'test_app:search' %}"  method="POST" accept-charset="utf-8">
+        {% csrf_token %}
+        <div class="text-sm-center">
+            <label class="text-muted">电机零件号 | PN<input class="form-control" type="search" name="motor_PN_search" value=""></label>
+            <label class="text-muted">电机型号 | Model<input class="form-control" type="search" name="motor_model_search" value=""></label>
+            <label class="text-muted">电机编码 | Code<input class="form-control" type="search" name="motor_code_search" value=""></label>
+        </div>
+        <br>
+        <div class="text-sm-center">
+            <button class="btn btn-lg btn-primary" type="submit">查找</button>
+        </div>
+    </form>
+    <br>
+    <form action= "{% url 'test_app:motor_login' %}" method="POST" accept-charset="utf-8">
+        {% csrf_token %}
+    <div class="container">
+    {% for motorinfoobj in motorinfoobj_list %}
+        <button class="btn" type="submit" name="motorindex" value="{{motorinfoobj.id}}">{{motorinfoobj}}</button>
+    {% endfor %}
+    </div>
+    </form>
+</div>
+
+{% endblock content %}

@@ -14,7 +14,7 @@
 <br>
 <form action="{% url 'test_app:basic' %}" method="post" accept-charset="utf-8">
     {% csrf_token %}
-    <table class="table table-responsive-sm table-hover">
+    <table class="table table-responsive-sm">
         <thead class="thead-dark">
             <tr>
                 <th>测试人员 1</th>
@@ -27,21 +27,20 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="1" scope="col"> <select class="form-control" name="tester1">
-
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="tester1">
                     {% for testervalue,testername in testerlist %}
                         <option value="{{testervalue}}">{{testername}}</option>}
                     {% endfor %}
                 </select> </td>
-                <td colspan="1" scope="col"> <select class="form-control" name="tester2">
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="tester2">
                     {% for testervalue,testername in testerlist %}
                         <option value="{{testervalue}}">{{testername}}</option>
                     {% endfor %}
                 </select> </td>
-                <td colspan="1" scope="col"><input class="form-control" type="number" name="env_temperature" min="0" required></td>
-                <td colspan="1" scope="col"><input class="form-control" type="number" name="env_humidity" min="0" placeholder="0~100" required></td>
-                <td colspan="1" scope="col"><input class="form-control" type="number" name="motor_poles" min="2" required></td>
-                <td colspan="1" scope="col"><input class="form-control" type="number" name="resolver_poles" min="2" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_temperature" min="0" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_humidity" min="0" placeholder="0~100" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="motor_poles" min="2" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="resolver_poles" min="2" required></td>
             </tr>
         </tbody>
         <thead class="thead-dark">
@@ -55,15 +54,15 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="1" scope="col"><input class="form-control" type="text" name="motor_PN" placeholder="M00-000000" required></td>
-                <td colspan="2" scope="col"><input class="form-control" type="text" name="motor_model" placeholder="M00P0-X-00XXXX" required></td>
-                <td colspan="1" scope="col"><input class="form-control" type="text" name="motor_code" placeholder="A00-000-YYMMDD" required></td>
-                <td colspan="1" scope="col"> <select class="form-control" name="phase_connection">
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="text" name="motor_PN" placeholder="M00-000000" required></td>
+                <td colspan="2" scope="col"><input class="form-control-plaintext" type="text" name="motor_model" placeholder="M00P0-X-00XXXX" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="text" name="motor_code" placeholder="A00-000-YYMMDD" required></td>
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="phase_connection">
                     {% for phasevalue,phasename in phaseconnect %}
                         <option value="{{phasevalue}}" >{{phasename}}</option>
                     {% endfor %}
                 </select> </td>
-                <td colspan="1" scope="col"> <select class="form-control" name="forward_direct" >
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="forward_direct" >
                     {% for directionvalue,directionname in direction_list %}
                         <option value="{{directionvalue}}">{{directionname}}</option>
                     {% endfor %}
@@ -80,17 +79,17 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="1" scope="col"> <select class="form-control" name="inverter_type">
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="inverter_type">
                     {% for inverter_tpye_value,inverter_type_name in inverter_type_list %}
                         <option value="{{inverter_tpye_value}}" >{{inverter_type_name}}</option>
                     {% endfor %}
                 </select> </td>
-                <td colspan="1" scope="col"><input class="form-control" type="text" name="inverter_serial" required></td>
-                <td colspan="1" scope="col"> <select class="form-control" name="eeprom" >
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="text" name="inverter_serial" required></td>
+                <td colspan="1" scope="col"> <select class="form-control-plaintext" name="eeprom" >
                     <option>50</option>
                     <option>34</option>
                 </select> </td>
-                <td colspan="3" scope="col"><input class="form-control" type="text" name="comment" placeholder="-非必须-"> </td>
+                <td colspan="3" scope="col"><input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"> </td>
             </tr>
         </tbody>
     </table>

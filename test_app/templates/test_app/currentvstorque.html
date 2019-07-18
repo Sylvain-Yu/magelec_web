@@ -1,0 +1,55 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    电机基础信息
+{% endblock title %}
+{% block css %}
+
+    
+{% endblock css %}
+
+{% block content %}
+
+
+    <div class="container-fluid">
+
+        <table class="table table-responsive-sm table-striped">
+            <thead>
+                <tr>
+                    <th>电特性试验</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">转速设定值:</p></td>
+                    <td colspan="" rowspan="" headers=""><input class="form-control-plaintext" type="number" name="speed_point"></td>
+                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">电流设定值:</p></td>
+                    <td colspan="" rowspan="" headers=""><input class="form-control-plaintext" type="number" name="current_target"></td>
+                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">旋转方向:</p></td>
+                    <td colspan="" rowspan="" headers="">
+                        <select class="form-control-plaintext" name="rotate_direction">
+                            {% for dircvalue,dircname in forward_direction_list %}
+                                <option value="{{dircvalue}}">{{dircname}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">冷却介质:</p></td>
+                    <td colspan="" rowspan="" headers="">
+                        <select class="form-control-plaintext" name="cooling_type">
+                            {% for coolvalue,coolname in cooling_type_list %}
+                                <option value="{{coolvalue}}">{{coolname}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="" rowspan="" headers=""></td>
+                    <td colspan="" rowspan="" headers=""></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+{% endblock content %}

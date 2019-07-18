@@ -20,14 +20,9 @@ class TorqueVsCurrentInfo(admin.ModelAdmin):
     empty_value_display = '-空白-'
     date_hierarchy = 'c_time'
 
-class MotorView(admin.ModelAdmin):
-    """docstring for MotorView"""
-    list_display = ['motorinfo','c_time','modify_time']
-    date_hierarchy = 'c_time'
 
 admin.site.site_header = 'MAGELEC 信息管理后台'
 admin.site.site_title = 'MAGELEC'
-admin.site.register(models.Motor,MotorView)
 admin.site.register(models.MotorInfo,MotorSimpleInfo)
 admin.site.register(models.HighSpeed,HighSpeedInfo)
 admin.site.register(models.CurrentVsTorque,TorqueVsCurrentInfo)

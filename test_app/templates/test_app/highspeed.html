@@ -26,15 +26,15 @@
             </thead>
             <tbody>
                 <tr >
-                    <td > <select class="form-control" name="rotate_direction" >
+                    <td > <select class="form-control-plaintext" name="rotate_direction" >
                         {% for directionvalue,directionname in forward_direction_list %}
                             <option value="{{directionvalue}}">{{directionname}}</option>
                         {% endfor %}
                     </select> </td>
-                    <td > <input class="form-control" type="number" name="speed" min="0"> </td>
-                    <td > <input class="form-control" type="time" name="run_time"> </td>
-                    <td > <input class="form-control" type="number" name="cooling_temperature" min="0"></td>
-                    <td > <input class="form-control" type="number" name="flow"> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="speed" min="0" required> </td>
+                    <td > <input class="form-control-plaintext" type="time" name="run_time" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="flow" required> </td>
                     <td > <input class="form-control" type="checkbox" name="passornot"> </td>
                 </tr>
             </tbody>
@@ -51,11 +51,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control" min="0" type="number" name="RTD1_start_temperature"></td>
-                    <td> <input class="form-control" min="0" type="number" name="RTD2_start_temperature"></td>
-                    <td> <input class="form-control" min="0" type="number" name="RTD1_end_temperature"></td>
-                    <td> <input class="form-control" min="0" type="number" name="RTD2_end_temperature"> </td>
-                    <td colspan="1"> <input class="form-control" type="text" name="comment"> </td>
+                    <td> <input class="form-control-plaintext" min="0" type="number" name="RTD1_start_temperature" required></td>
+                    <td> <input class="form-control-plaintext" min="0" type="number" name="RTD2_start_temperature" required></td>
+                    <td> <input class="form-control-plaintext" min="0" type="number" name="RTD1_end_temperature" required></td>
+                    <td> <input class="form-control-plaintext" min="0" type="number" name="RTD2_end_temperature" required> </td>
+                    <td colspan="1"> <input class="form-control" type="text" name="comment"></td>
                 </tr>
             </tbody>
         </table>
