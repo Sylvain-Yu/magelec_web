@@ -1,0 +1,256 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 03:13:42 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a1673899f0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named 'magelec'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32387)
+spawned uWSGI worker 1 (pid: 32388, cores: 1)
+spawned uWSGI worker 2 (pid: 32389, cores: 1)
+spawned uWSGI worker 3 (pid: 32390, cores: 1)
+spawned uWSGI worker 4 (pid: 32391, cores: 1)
+spawned uWSGI worker 5 (pid: 32392, cores: 1)
+spawned uWSGI http 1 (pid: 32393)
+--- no python application found, check your startup logs for errors ---
+--- no python application found, check your startup logs for errors ---
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32393)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 03:16:42 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x565520cc59f0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named 'magelec_web'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32426)
+spawned uWSGI worker 1 (pid: 32427, cores: 1)
+spawned uWSGI worker 2 (pid: 32428, cores: 1)
+spawned uWSGI worker 3 (pid: 32429, cores: 1)
+spawned uWSGI worker 4 (pid: 32430, cores: 1)
+spawned uWSGI worker 5 (pid: 32431, cores: 1)
+spawned uWSGI http 1 (pid: 32432)
+--- no python application found, check your startup logs for errors ---
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32432)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 03:19:28 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56087ba369f0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named '.'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32455)
+spawned uWSGI worker 1 (pid: 32456, cores: 1)
+spawned uWSGI worker 2 (pid: 32457, cores: 1)
+spawned uWSGI worker 3 (pid: 32458, cores: 1)
+spawned uWSGI worker 4 (pid: 32459, cores: 1)
+spawned uWSGI worker 5 (pid: 32460, cores: 1)
+spawned uWSGI http 1 (pid: 32461)
+--- no python application found, check your startup logs for errors ---
+--- no python application found, check your startup logs for errors ---
+--- no python application found, check your startup logs for errors ---
+--- no python application found, check your startup logs for errors ---
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32461)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 03:20:33 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5640c9520a10
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named '/home/magelec_web/magelec_web'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32468)
+spawned uWSGI worker 1 (pid: 32469, cores: 1)
+spawned uWSGI worker 2 (pid: 32470, cores: 1)
+spawned uWSGI worker 3 (pid: 32471, cores: 1)
+spawned uWSGI worker 4 (pid: 32472, cores: 1)
+spawned uWSGI worker 5 (pid: 32473, cores: 1)
+spawned uWSGI http 1 (pid: 32474)
+--- no python application found, check your startup logs for errors ---
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32474)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 03:24:32 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5619b5a989a0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5619b5a989a0 pid: 32525 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 32525)
+spawned uWSGI worker 1 (pid: 32526, cores: 1)
+spawned uWSGI worker 2 (pid: 32527, cores: 1)
+spawned uWSGI worker 3 (pid: 32528, cores: 1)
+spawned uWSGI worker 4 (pid: 32529, cores: 1)
+spawned uWSGI worker 5 (pid: 32530, cores: 1)
+spawned uWSGI http 1 (pid: 32531)

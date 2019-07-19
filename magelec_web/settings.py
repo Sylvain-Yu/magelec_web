@@ -79,12 +79,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
-        'USER': 'root',
+        'USER': 'sylvain',
         'PASSWORD': 'toor1234',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        'TEST':{
+            'CHARSET':'utf8',
+            'COLLATION':'utf8_general_ci',
+            }
+        }
     }
-}
 
 
 # Password validation
