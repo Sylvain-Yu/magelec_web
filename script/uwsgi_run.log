@@ -254,3 +254,724 @@ spawned uWSGI worker 3 (pid: 32528, cores: 1)
 spawned uWSGI worker 4 (pid: 32529, cores: 1)
 spawned uWSGI worker 5 (pid: 32530, cores: 1)
 spawned uWSGI http 1 (pid: 32531)
+Not Found: /static/js/jquery-3.4.1.js
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/js/bootstrap.min.js
+Not Found: /favicon.ico
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/js/jquery-3.4.1.js
+Not Found: /favicon.ico
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 32531)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:24:05 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56209e7e69d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x56209e7e69d0 pid: 446 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 446)
+spawned uWSGI worker 1 (pid: 448, cores: 1)
+spawned uWSGI worker 2 (pid: 449, cores: 1)
+spawned uWSGI worker 3 (pid: 450, cores: 1)
+spawned uWSGI worker 4 (pid: 451, cores: 1)
+spawned uWSGI worker 5 (pid: 452, cores: 1)
+spawned uWSGI http 1 (pid: 453)
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 453)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:24:42 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5564d59a19d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5564d59a19d0 pid: 458 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 458)
+spawned uWSGI worker 1 (pid: 459, cores: 1)
+spawned uWSGI worker 2 (pid: 460, cores: 1)
+spawned uWSGI worker 3 (pid: 461, cores: 1)
+spawned uWSGI worker 4 (pid: 462, cores: 1)
+spawned uWSGI worker 5 (pid: 463, cores: 1)
+spawned uWSGI http 1 (pid: 464)
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/js/jquery-3.4.1.js
+Not Found: /static/js/bootstrap.min.js
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 464)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:25:51 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55bab23679d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55bab23679d0 pid: 475 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 475)
+spawned uWSGI worker 1 (pid: 476, cores: 1)
+spawned uWSGI worker 2 (pid: 477, cores: 1)
+spawned uWSGI worker 3 (pid: 478, cores: 1)
+spawned uWSGI worker 4 (pid: 479, cores: 1)
+spawned uWSGI worker 5 (pid: 480, cores: 1)
+spawned uWSGI http 1 (pid: 481)
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 481)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:26:14 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55c4528a09d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55c4528a09d0 pid: 489 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 489)
+spawned uWSGI worker 1 (pid: 490, cores: 1)
+spawned uWSGI worker 2 (pid: 491, cores: 1)
+spawned uWSGI worker 3 (pid: 492, cores: 1)
+spawned uWSGI worker 4 (pid: 493, cores: 1)
+spawned uWSGI worker 5 (pid: 494, cores: 1)
+spawned uWSGI http 1 (pid: 495)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 495)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:26:46 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d76a3319d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55d76a3319d0 pid: 502 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 502)
+spawned uWSGI worker 1 (pid: 503, cores: 1)
+spawned uWSGI worker 2 (pid: 504, cores: 1)
+spawned uWSGI worker 3 (pid: 505, cores: 1)
+spawned uWSGI worker 4 (pid: 506, cores: 1)
+spawned uWSGI worker 5 (pid: 507, cores: 1)
+spawned uWSGI http 1 (pid: 508)
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 508)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:28:32 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55b604b9d9d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55b604b9d9d0 pid: 518 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 518)
+spawned uWSGI worker 1 (pid: 519, cores: 1)
+spawned uWSGI worker 2 (pid: 520, cores: 1)
+spawned uWSGI worker 3 (pid: 521, cores: 1)
+spawned uWSGI worker 4 (pid: 522, cores: 1)
+spawned uWSGI worker 5 (pid: 523, cores: 1)
+spawned uWSGI http 1 (pid: 524)
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 524)
+worker 1 buried after 2 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:31:01 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55b6a16f69d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55b6a16f69d0 pid: 535 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 535)
+spawned uWSGI worker 1 (pid: 536, cores: 1)
+spawned uWSGI worker 2 (pid: 537, cores: 1)
+spawned uWSGI worker 3 (pid: 538, cores: 1)
+spawned uWSGI worker 4 (pid: 539, cores: 1)
+spawned uWSGI worker 5 (pid: 540, cores: 1)
+spawned uWSGI http 1 (pid: 541)
+Not Found: /static/css/bootstrap.min.css
+Not Found: /static/css/bootstrap.min.css
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 541)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 04:32:03 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on : 8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56271a54f9d0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x56271a54f9d0 pid: 548 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 548)
+spawned uWSGI worker 1 (pid: 549, cores: 1)
+spawned uWSGI worker 2 (pid: 550, cores: 1)
+spawned uWSGI worker 3 (pid: 551, cores: 1)
+spawned uWSGI worker 4 (pid: 552, cores: 1)
+spawned uWSGI worker 5 (pid: 553, cores: 1)
+spawned uWSGI http 1 (pid: 554)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/changelists.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/img/search.svg
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/forms.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/prepopulate_init.js
+Not Found: /static/admin/js/change_form.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/change_form.js
+Not Found: /static/admin/js/prepopulate_init.js
+Not Found: /static/admin/css/forms.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/change_form.js
+Not Found: /static/admin/js/prepopulate_init.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/change_form.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/prepopulate_init.js
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/css/changelists.css
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/jquery.init.js
+Not Found: /static/admin/js/core.js
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+Not Found: /static/admin/js/prepopulate.js
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/css/responsive.css
+<QuerySet []>
+<QuerySet [<HighSpeed: 123rpm_2019-07-19 05:04:07.803040+00:00>]>
+<QuerySet [<HighSpeed: 1232rpm_2019-07-19 05:04:20.447418+00:00>, <HighSpeed: 123rpm_2019-07-19 05:04:07.803040+00:00>]>
+1  
+2  
+a  
+1
+<QuerySet [<HighSpeed: 1232rpm_2019-07-19 05:04:20.447418+00:00>, <HighSpeed: 123rpm_2019-07-19 05:04:07.803040+00:00>]>
+2  
+a  
+1
+a  
+1
+m88-000032  
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /favicon.ico
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 554)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 06:15:15 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 127.0.0.1:8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55fa4e0592a0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55fa4e0592a0 pid: 1524 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1524)
+spawned uWSGI worker 1 (pid: 1525, cores: 1)
+spawned uWSGI worker 2 (pid: 1526, cores: 1)
+spawned uWSGI worker 3 (pid: 1527, cores: 1)
+spawned uWSGI worker 4 (pid: 1528, cores: 1)
+spawned uWSGI worker 5 (pid: 1529, cores: 1)
+spawned uWSGI http 1 (pid: 1530)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1530)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 06:23:27 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 45.76.207.148:8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x559b1ce322a0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x559b1ce322a0 pid: 1619 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1619)
+spawned uWSGI worker 1 (pid: 1620, cores: 1)
+spawned uWSGI worker 2 (pid: 1621, cores: 1)
+spawned uWSGI worker 3 (pid: 1622, cores: 1)
+spawned uWSGI worker 4 (pid: 1623, cores: 1)
+spawned uWSGI worker 5 (pid: 1624, cores: 1)
+spawned uWSGI http 1 (pid: 1625)
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+ a 
+1
+<QuerySet [<HighSpeed: 1232rpm_2019-07-19 05:04:20.447418+00:00>, <HighSpeed: 123rpm_2019-07-19 05:04:07.803040+00:00>]>
+Not Found: /favicon.ico
+ a 
+ a 
+1
+<QuerySet [<HighSpeed: 1232rpm_2019-07-19 05:04:20.447418+00:00>, <HighSpeed: 123rpm_2019-07-19 05:04:07.803040+00:00>]>
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 1625)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/magelec_web/script/uwsgi.sock removed.
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Jul 19 07:00:45 2019] ***
+compiled with version: 8.3.0 on 19 July 2019 01:09:16
+os: Linux-5.0.0-15-generic #16-Ubuntu SMP Mon May 6 17:41:33 UTC 2019
+nodename: vultr.guest
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/magelec_web/script
+writing pidfile to /home/magelec_web/script/uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/magelec_web
+your processes number limit is 3655
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...554 entry found
+lock engine: pthread robust mutexes
+thunder lock: enabled
+uWSGI http bound on 127.0.0.1:8000 fd 3
+uwsgi socket 0 bound to UNIX address /home/magelec_web/script/uwsgi.sock fd 6
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.7.3 (default, Apr  3 2019, 05:39:12)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561d52ef72a0
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 486672 bytes (475 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x561d52ef72a0 pid: 2314 (default app)
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2314)
+spawned uWSGI worker 1 (pid: 2315, cores: 1)
+spawned uWSGI worker 2 (pid: 2316, cores: 1)
+spawned uWSGI worker 3 (pid: 2317, cores: 1)
+spawned uWSGI worker 4 (pid: 2318, cores: 1)
+spawned uWSGI worker 5 (pid: 2319, cores: 1)
+spawned uWSGI http 1 (pid: 2320)
