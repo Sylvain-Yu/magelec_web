@@ -282,7 +282,7 @@ class Calibration(models.Model):
     Ld_Lq_Const_EEPROM_uH = models.IntegerField()
     Kp_Current_EEPROM_x_1000 = models.IntegerField()
     Ki_Current_EEPROM_x_10000 = models.IntegerField()
-    Gamma_Ajust_x_10 = models.IntegerField()
+    Gamma_Adjust_x_10 = models.IntegerField()
     comment = models.CharField(max_length=128, null=True, blank=True)
     c_time = models.DateTimeField(auto_now_add=True)
     modify_time = models.DateTimeField(auto_now=True)
