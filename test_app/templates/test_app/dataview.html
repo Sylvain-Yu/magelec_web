@@ -1,13 +1,12 @@
 {% extends "test_app/base.html" %}
 {% load staticfiles %}
 {% block title %}
-    高速试验
+    数据查看
 {% endblock title %}
 {% block css %}
     
 {% endblock css %}
 {% block content %}
-    
 
 <body>
     <table class="table table-responsive-sm">
@@ -35,6 +34,7 @@
                 <td colspan="" rowspan="" headers="">{{motorinfoobj.inverter_serial}}</td>
                 <td colspan="" rowspan="" headers="">{{motorinfoobj.motor_type_options_eeprom}}</td>
             </tr>
+        </tbody>
         <thead>
             <tr>
                 <th colspan="" rowspan="" headers="" scope="">测试人员 1</th>
@@ -71,6 +71,143 @@
         </tbody>
     </table>
 
+{% if motorscobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>短路试验结果 ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">转速设定点</th>
+                <th colspan="" rowspan="" headers="" scope="">运转方向</th>
+                <th colspan="" rowspan="" headers="" scope="">测量时温度</th>
+                <th colspan="" rowspan="" headers="" scope="">冷却温度</th>
+                <th colspan="" rowspan="" headers="" scope="">环境温度</th>
+                <th colspan="" rowspan="" headers="" scope="">环境湿度</th>
+                <th colspan="" rowspan="" headers="" scope="">U相电流</th>
+                <th colspan="" rowspan="" headers="" scope="">V相电流</th>
+                <th colspan="" rowspan="" headers="" scope="">W相电流</th>
+                <th colspan="" rowspan="" headers="" scope="">U相基电流</th>
+                <th colspan="" rowspan="" headers="" scope="">V相基电流</th>
+                <th colspan="" rowspan="" headers="" scope="">W相基电流</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+                <th colspan="" rowspan="" headers="" scope="">创建时间</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorscobj in motorscobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorscobj.speed_point}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.get_rotate_direction_display}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.temperature_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.cooling_temperature}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.env_temperature}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.env_humidity}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.u_phase_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.v_phase_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.w_phase_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.u_phase_f_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.u_phase_f_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.u_phase_f_current}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.comment}}</td>
+                <td colspan="" rowspan="" headers="">{{motorscobj.c_time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% if motorinsulationobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>电机绝缘测试结果 ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">15s 绕组</th>
+                <th colspan="" rowspan="" headers="" scope="">60s 绕组</th>
+                <th colspan="" rowspan="" headers="" scope="">测量时温度</th>
+                <th colspan="" rowspan="" headers="" scope="">RTD1</th>
+                <th colspan="" rowspan="" headers="" scope="">RTD2</th>
+                <th colspan="" rowspan="" headers="" scope="">环境温度</th>
+                <th colspan="" rowspan="" headers="" scope="">环境湿度</th>
+                <th colspan="" rowspan="" headers="" scope="">uv绕组</th>
+                <th colspan="" rowspan="" headers="" scope="">vw绕组</th>
+                <th colspan="" rowspan="" headers="" scope="">uw绕组</th>
+                <th colspan="" rowspan="" headers="" scope="">绝缘电压</th>
+                <th colspan="" rowspan="" headers="" scope="">绝缘阻值</th>
+                <th colspan="" rowspan="" headers="" scope="">高压电压</th>
+                <th colspan="" rowspan="" headers="" scope="">高压阻值</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorinsulationobj in motorinsulationobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.resistance_15s}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.resistance_60s}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.temperature_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.rtd1}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.rtd2}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.room_temperature}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.room_humidity}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.winding_phase_u_v}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.winding_phase_v_w}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.winding_phase_u_w}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.insulation_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.insulation_resistance}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.hipot_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.hipot_resistance}}</td>
+                <td colspan="" rowspan="" headers="">{{motorinsulationobj.comment}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+
+{% if motorcvtobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>电特性试验结果 ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">转速设定值</th>
+                <th colspan="" rowspan="" headers="" scope="">电流设定值</th>
+                <th colspan="" rowspan="" headers="" scope="">测量相电流</th>
+                <th colspan="" rowspan="" headers="" scope="">旋转方向</th>
+                <th colspan="" rowspan="" headers="" scope="">冷却温度</th>
+                <th colspan="" rowspan="" headers="" scope="">冷却流量</th>
+                <th colspan="" rowspan="" headers="" scope="">冷却介质</th>
+                <th colspan="" rowspan="" headers="" scope="">控制方式</th>
+                <th colspan="" rowspan="" headers="" scope="">直流电压</th>
+                <th colspan="" rowspan="" headers="" scope="">扭矩命令</th>
+                <th colspan="" rowspan="" headers="" scope="">扭矩测量值</th>
+                <th colspan="" rowspan="" headers="" scope="">测量温度</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+                <th colspan="" rowspan="" headers="" scope="">创建时间</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorcvtobj in motorcvtobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.speed_point}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.current_target}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.phase_current_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.get_rotate_direction_display}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.cooling_temperature}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.cooling_flow}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.get_cooling_type_display}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.get_control_mode_display}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.dc_bus_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.torque_command}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.torque_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.temperature_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.comment}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcvtobj.c_time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
 
 {% if motorhighspeedobj_list %}
     <table class="table table-hover table-responsive-sm">
@@ -86,9 +223,8 @@
                 <th colspan="" rowspan="" headers="" scope="">RTD2结束温度</th>
                 <th colspan="" rowspan="" headers="" scope="">冷却温度</th>
                 <th colspan="" rowspan="" headers="" scope="">是否通过</th>
-                <th colspan="" rowspan="" headers="" scope="">创建时间</th>
-                <th colspan="" rowspan="" headers="" scope="">修改时间</th>
                 <th colspan="" rowspan="" headers="" scope="">备注</th>
+                <th colspan="" rowspan="" headers="" scope="">创建时间</th>
             </tr>
         </thead>
 
@@ -104,14 +240,80 @@
                 <td colspan="" rowspan="" headers="">{{motorhighspeedobj.RTD2_end_temperature}}</td>
                 <td colspan="" rowspan="" headers="">{{motorhighspeedobj.cooling_temperature}}</td>
                 <td colspan="" rowspan="" headers="">{{motorhighspeedobj.passornot}}</td>
-                <td colspan="" rowspan="" headers="">{{motorhighspeedobj.c_time}}</td>
-                <td colspan="" rowspan="" headers="">{{motorhighspeedobj.modify_time}}</td>
                 <td colspan="" rowspan="" headers="">{{motorhighspeedobj.comment}}</td>
+                <td colspan="" rowspan="" headers="">{{motorhighspeedobj.c_time}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 {% endif %}
 
+{% if motorbemfobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>反电动势测量结果 ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">U相电压</th>
+                <th colspan="" rowspan="" headers="" scope="">V相电压</th>
+                <th colspan="" rowspan="" headers="" scope="">W相电压</th>
+                <th colspan="" rowspan="" headers="" scope="">相电压均值</th>
+                <th colspan="" rowspan="" headers="" scope="">UV线电压</th>
+                <th colspan="" rowspan="" headers="" scope="">VW线电压</th>
+                <th colspan="" rowspan="" headers="" scope="">WU线电压</th>
+                <th colspan="" rowspan="" headers="" scope="">线电压均值</th>
+                <th colspan="" rowspan="" headers="" scope="">转速</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+                <th colspan="" rowspan="" headers="" scope="">创建时间</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorbemfobj in motorbemfobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.u_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.v_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.w_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.Average_3phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.uv_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.vw_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.wu_phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.Average_3phase2phase_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.speed_point}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.comment}}</td>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.c_time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% if motorcalibrateobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>标定实际设置参数EEPROM ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">Stator_Resistance</th>
+                <th colspan="" rowspan="" headers="" scope="">Veh_Flux</th>
+                <th colspan="" rowspan="" headers="" scope="">Ld_Lq_Const</th>
+                <th colspan="" rowspan="" headers="" scope="">Kp_Current</th>
+                <th colspan="" rowspan="" headers="" scope="">Ki_Current</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorcalibrateobj in motorcalibrateobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.Stator_Resistance_EEPROM_x_10000}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.Veh_Flux_EEPROM_web_x_1000}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.Ld_Lq_Const_EEPROM_uH}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.Kp_Current_EEPROM_x_1000}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.Ki_Current_EEPROM_x_10000}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcalibrateobj.comment}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
 </body>
 {% endblock content %}

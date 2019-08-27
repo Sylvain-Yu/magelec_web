@@ -1,0 +1,89 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    短路试验
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="container-fluid">
+    <h1 class="h3 text-center">短路试验</h1>
+    <form  action="{% url 'test_app:shortcircuit' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>转速设置点</th>
+                    <th>旋转方向</th>
+                    <th>测量时温度</th>
+                    <th>冷却温度</th>
+                    <th>绕组最低温度</th>
+                    <th>绕组最高温度</th>
+                    <th>环境温度</th>
+                    <th>环境湿度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td > <input class="form-control-plaintext" type="number" name="speed_point" min="0" required> </td>
+                    <td > <select class="form-control-plaintext" name="rotate_direction" >
+                        {% for directionvalue,directionname in forward_direction_list %}
+                            <option value="{{directionvalue}}">{{directionname}}</option>
+                        {% endfor %}
+                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"required> </td>
+                    </select> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_temperature" required=""> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_humidity" required=""> </td>
+                </tr>
+            </tbody>
+            <thead class="thead-dark">
+                <tr>
+                    <th>U相电流</th>
+                    <th>V相电流</th>
+                    <th>W相电流</th>
+                    <th>U相基电流</th>
+                    <th>V相基电流</th>
+                    <th>W相基电流</th>
+                    <th colspan="2">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_f_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_f_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_f_current" required></td>
+                    <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment"></td>
+                </tr>
+            </tbody>
+        </table>
+                <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>扭矩设置</th>
+                    <th>扭矩测量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_command" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" required></td>
+
+                </tr>
+            </tbody>
+        </table>
+            <div class="flex-sm-row offset-sm-11">
+                <button type="submit" class="btn btn-primary" value="submit">提交</button>
+            </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

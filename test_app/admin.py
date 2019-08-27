@@ -20,9 +20,38 @@ class TorqueVsCurrentInfo(admin.ModelAdmin):
     empty_value_display = '-空白-'
     date_hierarchy = 'c_time'
 
+class ShortCircuitInfo(admin.ModelAdmin):
+    list_display = ['speed_point','c_time','comment']
+    empty_value_display = '-空白-'
+    date_hierarchy = 'c_time'
+
+class InsulationInfo(admin.ModelAdmin):
+    list_display = ['c_time','comment']
+    empty_value_display = '-空白-'
+    date_hierarchy = 'c_time'
+
+class ContinuousInfo(admin.ModelAdmin):
+    list_display = ['c_time','comment']
+    empty_value_display = '-空白-'
+    date_hierarchy = 'c_time'
+
+class BEMF_Info(admin.ModelAdmin):
+    list_display = ['c_time','comment']
+    empty_value_display = '-空白-'
+    date_hierarchy = 'c_time'
+
+class CalibrationInfo(admin.ModelAdmin):
+    list_display = ['c_time','comment']
+    empty_value_display = '-空白-'
+    date_hierarchy = 'c_time'
 
 admin.site.site_header = 'MAGELEC 信息管理后台'
 admin.site.site_title = 'MAGELEC'
 admin.site.register(models.MotorInfo,MotorSimpleInfo)
 admin.site.register(models.HighSpeed,HighSpeedInfo)
 admin.site.register(models.CurrentVsTorque,TorqueVsCurrentInfo)
+admin.site.register(models.ShortCircuit,ShortCircuitInfo)
+admin.site.register(models.Insulation,InsulationInfo)
+admin.site.register(models.Continuous,ContinuousInfo)
+admin.site.register(models.BEMF,BEMF_Info)
+admin.site.register(models.Calibration,CalibrationInfo)

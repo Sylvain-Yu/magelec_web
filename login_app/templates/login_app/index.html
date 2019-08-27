@@ -9,7 +9,8 @@
 
 {% block content %}
     <body class="text-center">
-    <P> <b>Welcome!</b><br>nice to see you !<br>{{user.name}}--{{user.sex}}</P>
+    <P> <b>Welcome!</b><br>nice to see you !<br>{{user.name}}</P>
     <a href= "{% url 'test_app:index' %}" title=""> 测试主页</a>
+    <p><a href="#" title="">空闲中</a></p>
     </body>
 {% endblock content %}

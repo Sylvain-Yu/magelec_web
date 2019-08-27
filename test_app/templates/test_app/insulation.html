@@ -1,0 +1,79 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    绝缘测试
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="container-fluid">
+    <h1 class="h3 text-center">绝缘测试</h1>
+    <form  action="{% url 'test_app:insulation' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>15s 绕组</th>
+                    <th>60s 绕组</th>
+                    <th>测量时温度</th>
+                    <th>RTD1</th>
+                    <th>RTD2</th>
+                    <th>环境温度</th>
+                    <th>环境湿度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td > <input class="form-control-plaintext" type="number" name="resistance_15s" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="resistance_60s" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="RTD1" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="RTD2" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="room_temperature" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="room_humidity" required> </td>
+                </tr>
+            </tbody>
+            <thead class="thead-dark">
+                <tr>
+                    <th>uv绕组</th>
+                    <th>vw绕组</th>
+                    <th>uw绕组</th>
+                    <th>绝缘测试电压</th>
+                    <th>绝缘阻值</th>
+                    <th>高压测试电压</th>
+                    <th>高压阻值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_v" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_v_w" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_w" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_voltage" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_resistance" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_voltage" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_resistance" required> </td>
+                </tr>
+            </tbody>
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="7">备注</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7"> <input class="form-control-plaintext" type="text" name="comment"></td>
+                </tr>
+            </tbody>
+        </table>
+            <div class="flex-sm-row offset-sm-11">
+                <button type="submit" class="btn btn-primary" value="submit">提交</button>
+            </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

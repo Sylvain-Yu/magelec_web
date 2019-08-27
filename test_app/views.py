@@ -3,6 +3,7 @@ from functools import wraps
 from login_app import models as login_app_models
 from . import models
 from datetime import timedelta
+import math
 # Create your views here.
 
 def check_login(f):
@@ -34,11 +35,24 @@ def dataview(request,context):
         motorinfoobj = context['motorinfoobj']
         if motorinfoobj:
             motorhighspeedobj_list = motorinfoobj.highspeed_set.all()
-            print(motorhighspeedobj_list)
             context['motorhighspeedobj_list'] = motorhighspeedobj_list
+            motorcvtobj_list = motorinfoobj.currentvstorque_set.all()
+            context['motorcvtobj_list'] = motorcvtobj_list
+            motorscobj_list = motorinfoobj.shortcircuit_set.all()
+            context['motorscobj_list'] = motorscobj_list
+            motorinsulationobj_list = motorinfoobj.insulation_set.all()
+            context['motorinsulationobj_list'] = motorinsulationobj_list
+            motorbemfobj_list = motorinfoobj.bemf_set.all()
+            # print(motorbemfobj_list)
+            context['motorbemfobj_list'] = motorbemfobj_list
+            motorcalibrateobj_list = motorinfoobj.calibration_set.all()
+            context['motorcalibrateobj_list'] = motorcalibrateobj_list
     except Exception as e:
         print(e)
     return render(request,'test_app/dataview.html',context)
+
+
+
 
 
 @check_login
@@ -47,7 +61,7 @@ def motor_login(request,context):
     if request.method =='POST':
         motor_id = request.POST.get('motorindex')
         request.session['motor_id'] = motor_id
-        print(motor_id)
+        # print(motor_id)
         return redirect('test_app:index')
     return HttpResponse('未能成功跳转，请联系管理员！')
 
@@ -62,6 +76,119 @@ def motor_logout(request):
     request.session['motor_id'] = False
     return redirect('test_app:index')
 
+@check_login
+@pass_info
+def shortcircuit(request,context):
+    motorinfoobj = context['motorinfoobj']
+    shortcircuitobj = models.ShortCircuit()
+    context['forward_direction_list'] = shortcircuitobj.forward_direction_list
+    try:
+        if request.method =='POST' and motorinfoobj:
+            # print(request.POST)
+            shortcircuitobj.speed_point = request.POST.get('speed_point')
+            shortcircuitobj.cooling_temperature = request.POST.get('cooling_temperature')
+            shortcircuitobj.winding_temperature_min = request.POST.get('winding_temperature_min')
+            shortcircuitobj.winding_temperature_max = request.POST.get('winding_temperature_max')
+            shortcircuitobj.env_temperature = request.POST.get('env_temperature')
+            shortcircuitobj.env_humidity = request.POST.get('env_humidity')
+            shortcircuitobj.rotate_direction = request.POST.get('rotate_direction')
+            shortcircuitobj.u_phase_current = request.POST.get('u_phase_current')
+            shortcircuitobj.v_phase_current = request.POST.get('v_phase_current')
+            shortcircuitobj.w_phase_current = request.POST.get('w_phase_current')
+            shortcircuitobj.average_phase_current = (float(request.POST.get('u_phase_current'))+
+            float(request.POST.get('v_phase_current')) +float(request.POST.get('w_phase_current')))/3
+            shortcircuitobj.u_phase_f_current = request.POST.get('u_phase_f_current')
+            shortcircuitobj.v_phase_f_current = request.POST.get('v_phase_f_current')
+            shortcircuitobj.w_phase_f_current = request.POST.get('w_phase_f_current')
+            shortcircuitobj.average_phase_f_current = (float(request.POST.get('u_phase_f_current'))+
+            float(request.POST.get('v_phase_f_current'))+float(request.POST.get('w_phase_f_current')))/3
+            shortcircuitobj.torque_command = request.POST.get('torque_command')
+            shortcircuitobj.torque_measured = request.POST.get('torque_measured')
+            shortcircuitobj.temperature_measured = request.POST.get('temperature_measured')
+            shortcircuitobj.comment = request.POST.get('comment')
+            shortcircuitobj.motorinfo = motorinfoobj
+            shortcircuitobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/ShortCircuit.html',context)
+
+@check_login
+@pass_info
+def continuous(request,context):
+    motorinfo = context['motorinfoobj']
+    continuousobj = models.Continuous()
+    context['control_mode_list'] = continuousobj.control_mode_list
+    context['forward_direction_list'] = continuousobj.forward_direction_list
+    context['cooling_type_list'] = continuousobj.cooling_type_list
+    try:
+        if request.method == 'POST' and motorinfoobj:
+            continuousobj.control_mode = request.POST.get('control_mode')
+            continuousobj.rotate_direction = request.POST.get('rotate_direction')
+            continuousobj.speed_point = request.POST.get('speed_point')
+            continuousobj.temperature_limit = request.POST.get('temperature_limit')
+            continuousobj.env_temperature = request.POST.get('env_temperature')
+            continuousobj.cooling_type = request.POST.get('cooling_type')
+            continuousobj.cooling_flow = request.POST.get('cooling_flow')
+            continuousobj.cooling_temperature = request.POST.get('cooling_temperature')
+            continuousobj.BEMF_before_1000rpm = request.POST.get('BEMF_before_1000rpm')
+            continuousobj.temperature_before_BEMF = request.POST.get('temperature_before_BEMF')
+            continuousobj.BEMF_after_1000rpm = request.POST.get('BEMF_after_1000rpm')
+            continuousobj.temperature_after_BEMF = request.POST.get('temperature_after_BEMF')
+            continuousobj.RTD1_stable = request.POST.get('RTD1_stable')
+            continuousobj.RTD2_stable = request.POST.get('RTD2_stable')
+            continuousobj.torque_command = request.POST.get('torque_command')
+            continuousobj.torque_measured = request.POST.get('torque_measured')
+            continuousobj.dc_bus_voltage = request.POST.get('dc_bus_voltage')
+            continuousobj.dc_current = request.POST.get('dc_current')
+            continuousobj.voltage_ph2n = request.POST.get('voltage_ph2n')
+            continuousobj.f_voltage_ph2n = request.POST.get('f_voltage_ph2n')
+            continuousobj.current_ph2n = request.POST.get('current_ph2n')
+            continuousobj.f_current_ph2n = request.POST.get('f_current_ph2n')
+            continuousobj.power = request.POST.get('power')
+            continuousobj.f_power = request.POST.get('f_power')
+            continuousobj.pf = request.POST.get('pf')
+            continuousobj.f_pf = request.POST.get('f_pf')
+            continuousobj.motor_efficiency = request.POST.get('motor_efficiency')
+            continuousobj.comment = request.POST.get('comment')
+            continuousobj.motorinfo = motorinfoobj
+            continuousobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/continuous.html',context)
+
+
+
+@check_login
+@pass_info
+def insulation(request,context):
+    motorinfoobj = context['motorinfoobj']
+    insulationobj = models.Insulation()
+    try:
+        if request.method == 'POST' and motorinfoobj:
+            insulationobj.resistance_15s = request.POST.get('resistance_15s')
+            insulationobj.resistance_60s = request.POST.get('resistance_60s')
+            insulationobj.temperature_measured = request.POST.get('temperature_measured')
+            insulationobj.rtd1 = request.POST.get('RTD1')
+            insulationobj.rtd2 = request.POST.get('RTD2')
+            insulationobj.room_temperature = request.POST.get('room_temperature')
+            insulationobj.room_humidity = request.POST.get('room_humidity')
+            insulationobj.winding_phase_u_v = request.POST.get('winding_phase_u_v')
+            insulationobj.winding_phase_v_w = request.POST.get('winding_phase_v_w')
+            insulationobj.winding_phase_u_w = request.POST.get('winding_phase_u_w')
+            insulationobj.insulation_voltage = request.POST.get('insulation_voltage')
+            insulationobj.insulation_resistance = request.POST.get('insulation_resistance')
+            insulationobj.hipot_voltage = request.POST.get('hipot_voltage')
+            insulationobj.hipot_resistance = request.POST.get('hipot_resistance')
+            insulationobj.comment = request.POST.get('comment')
+            insulationobj.recorder = context['user']
+            insulationobj.motorinfo = motorinfoobj
+            insulationobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/insulation.html',context)
 
 @check_login
 @pass_info
@@ -70,7 +197,34 @@ def currentvstorque(request,context):
     cvtobj = models.CurrentVsTorque()
     context['cooling_type_list'] = cvtobj.cooling_type_list
     context['forward_direction_list'] = cvtobj.forward_direction_list
-    pass
+    context['control_mode_list'] = cvtobj.control_mode_list
+    try:
+        if request.method =='POST' and motorinfoobj:
+            cvtobj.speed_point = request.POST.get('speed_point')
+            cvtobj.current_target = request.POST.get('current_target')
+            cvtobj.rotate_direction = request.POST.get('rotate_direction')
+            cvtobj.control_mode = request.POST.get('control_mode')
+            cvtobj.cooling_type = request.POST.get('cooling_type')
+            cvtobj.cooling_flow = request.POST.get('cooling_flow')
+            cvtobj.cooling_temperature = request.POST.get('cooling_temperature')
+            cvtobj.winding_temperature_min = request.POST.get('winding_temperature_min')
+            cvtobj.winding_temperature_max = request.POST.get('winding_temperature_max')
+            cvtobj.dc_bus_voltage = request.POST.get('dc_bus_voltage')
+            cvtobj.temperature_measured = request.POST.get('temperature_measured')
+            cvtobj.phase_current_measured = request.POST.get('phase_current_measured')
+            cvtobj.torque_command = request.POST.get('torque_command')
+            cvtobj.torque_measured = request.POST.get('torque_measured')
+            phase_current_measured = float(request.POST.get('phase_current_measured'))
+            torque_measured = float(request.POST.get('torque_command'))
+            kt = torque_measured / phase_current_measured
+            cvtobj.Kt = kt
+            cvtobj.Ke = kt/3**0.5
+            cvtobj.comment = request.POST.get('comment')
+            cvtobj.motorinfo = motorinfoobj
+            cvtobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
     return render(request,'test_app/currentvstorque.html',context)
 
 
@@ -144,6 +298,131 @@ def basic(request,context):
             print(e)
     return render(request,'test_app/basic.html',context)
 
+@check_login
+@pass_info
+def bemf(request,context):
+    motorinfoobj = context['motorinfoobj']
+    try:
+        if request.method =='POST' and motorinfoobj:
+            bemfobj = models.BEMF()
+            bemfobj.room_temperature = request.POST.get('room_temperature')
+            bemfobj.room_humidity = request.POST.get('room_temperature')
+            speed_point = request.POST.get('speed_point')
+            bemfobj.speed_point = speed_point
+            u_phase_voltage = request.POST.get('u_phase_voltage')
+            v_phase_voltage = request.POST.get('v_phase_voltage')
+            w_phase_voltage = request.POST.get('w_phase_voltage')
+            Average_3phase_voltage = str((float(u_phase_voltage) + \
+                float(v_phase_voltage) + float(w_phase_voltage))/3)
+            bemfobj.u_phase_voltage = u_phase_voltage
+            bemfobj.v_phase_voltage = v_phase_voltage
+            bemfobj.w_phase_voltage = w_phase_voltage
+            bemfobj.Average_3phase_voltage = Average_3phase_voltage
+            uv_phase_voltage = request.POST.get('uv_phase_voltage')
+            vw_phase_voltage = request.POST.get('vw_phase_voltage')
+            wu_phase_voltage = request.POST.get('wu_phase_voltage')
+            Average_3phase2phase_voltage = str((float(uv_phase_voltage) + \
+                float(vw_phase_voltage) + float(wu_phase_voltage))/3)
+            bemfobj.uv_phase_voltage = uv_phase_voltage
+            bemfobj.vw_phase_voltage = vw_phase_voltage
+            bemfobj.wu_phase_voltage = wu_phase_voltage
+            bemfobj.Average_3phase2phase_voltage = Average_3phase2phase_voltage
+            bemfobj.ke = str((float(speed_point)/376.8)/float(Average_3phase2phase_voltage))
+            bemfobj.comment = request.POST.get('comment')
+            bemfobj.motorinfo = motorinfoobj
+            bemfobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/bemf.html',context)
+
+
+@check_login
+@pass_info
+def calibrate(request,context):
+    motorinfoobj = context['motorinfoobj']
+    try:
+        if motorinfoobj.insulation_set.all().first():
+            insulationobj = motorinfoobj.insulation_set.all().first()
+            uv = float(insulationobj.winding_phase_u_v)
+            vw = float(insulationobj.winding_phase_v_w)
+            wu = float(insulationobj.winding_phase_u_w)
+            u = (wu + (uv - vw))/2
+            v = (uv - u)
+            w = (wu - u)
+            _,winding_average = math.modf((u + v + w)*10/3)
+            winding_average = str(int(winding_average))
+            context['winding_average'] = winding_average
+
+            if motorinfoobj.bemf_set.filter(speed_point = '1000').first():
+                bemfobj = motorinfoobj.bemf_set.filter(speed_point = '1000').first()
+                u_phase_voltage = float(bemfobj.u_phase_voltage)
+                v_phase_voltage = float(bemfobj.v_phase_voltage)
+                w_phase_voltage = float(bemfobj.w_phase_voltage)
+                motor_elec_speed = float(bemfobj.speed_point) * math.pi * float(motorinfoobj.motor_poles)/60
+                veh_flux = str(round(float(bemfobj.Average_3phase_voltage)* math.sqrt(2)/motor_elec_speed * 1000))
+                context['veh_flux'] = veh_flux
+
+                if motorinfoobj.shortcircuit_set.all().first():
+                    shortcircuitobj = motorinfoobj.shortcircuit_set.filter(speed_point= '1000').first()
+                    u_phase_current = float(shortcircuitobj.u_phase_current)
+                    v_phase_current = float(shortcircuitobj.v_phase_current)
+                    w_phase_current = float(shortcircuitobj.w_phase_current)
+                    # print(u_phase_voltage,u_phase_current,u,motor_elec_speed)
+                    inductance_U = math.sqrt((u_phase_voltage/u_phase_current)**2-(u/1000)**2)/motor_elec_speed
+                    inductance_V = math.sqrt((v_phase_voltage/v_phase_current)**2-(v/1000)**2)/motor_elec_speed
+                    inductance_W = math.sqrt((w_phase_voltage/w_phase_current)**2-(u/1000)**2)/motor_elec_speed
+                    # print(inductance_U)
+                    Ld_Lq_Const = round((inductance_U + inductance_V + inductance_W)*1000000/3)
+                    context['Ld_Lq_Const'] = Ld_Lq_Const
+                    w1 = int(winding_average)/10000/(Ld_Lq_Const/1000000)
+                    kp = (Ld_Lq_Const/1000000)*w1/(200/300)
+                    ki = kp * w1/12000
+                    Kp_Current = round(kp * 1000)
+                    Ki_Current = round(ki * 10000)
+                    context['Kp_Current'] = str(Kp_Current)
+                    context['Ki_Current'] = str(Ki_Current)
+
+        if request.method =='POST' and motorinfoobj:
+            calobj = models.Calibration()
+            calobj.Stator_Resistance_EEPROM_x_10000 = request.POST.get('Stator_Resistance_EEPROM_x10000')
+            calobj.Veh_Flux_EEPROM_web_x_1000 = request.POST.get('Veh_Flux_EEPROM_x1000')
+            calobj.Ld_Lq_Const_EEPROM_uH = request.POST('Ld_Lq_Const_EEPROM')
+            calobj.Kp_Current_EEPROM_x_1000 = request.POST.get('Kp_Current_EEPROM_x1000')
+            calobj.Ki_Current_EEPROM_x_10000 = request.POST.get('Ki_Current_EEPROM_x10000')
+            calobj.Gamma_Adjust_x_10 = request.POST.get('Gamma_Adjust_x10')
+            calobj.comment = request.POST.get('comment')
+            calobj.motorinfo = motorinfoobj
+            calobj.save()
+            return redirect('test_app:dataview')
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/calibrate.html',context)
+
+@pass_info
+@check_login
+def gamma(request,context):
+    try:
+        if request.method =='POST':
+            gamma_ajust_now = request.POST.get('Gamma_Adjust_now')
+            Delta_Resolver = request.POST.get('Delta_Resolver')
+            value = float(gamma_ajust_now) - (900 - float(Delta_Resolver))
+            # print(value)
+            while True:
+                if value > 1800:
+                    value = value - 3600
+                elif value < -1800:
+                    value = value + 3600
+                else:
+                    break
+            print(value)
+            context['gamma_ajust_after'] = str(value)
+            return render(request,'test_app/gamma.html',context)
+    except Exception as e:
+        print(e)
+    return render(request,'test_app/gamma.html',context)
+
+
 
 @pass_info
 @check_login
@@ -152,7 +431,7 @@ def search(request,context):
         motor_PN_search = request.POST.get('motor_PN_search')
         motor_model_search = request.POST.get('motor_model_search')
         motor_code_search = request.POST.get('motor_code_search')
-        print(motor_PN_search,motor_model_search,motor_code_search)
-        motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__contains = motor_PN_search,motor_model__contains = motor_model_search,motor_code__contains = motor_code_search).all()
+        # print(motor_PN_search,motor_model_search,motor_code_search)
+        motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__icontains = motor_PN_search,motor_model__contains = motor_model_search,motor_code__contains = motor_code_search).all()
         context['motorinfoobj_list'] = motorinfoobj_list
     return render(request,'test_app/search.html',context)

@@ -1,0 +1,67 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    标定流程
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="container-fluid">
+    <h1 class="h3 text-center">标定流程</h1>
+    <form  action="{% url 'test_app:highspeed' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Stator_Resistance_EEPROM_x10000</th>
+                    <th>Veh_Flux_EEPROM(WB)_x1000</th>
+                    <th>Ld_Lq_Const_EEPROM(uH)</th>
+                    <th colspan="" rowspan="" headers="" scope="">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="" rowspan="" headers="">{{winding_average}}</td>
+                    <td colspan="" rowspan="" headers="">{{veh_flux}}</td>
+                    <td colspan="" rowspan="" headers="">{{Ld_Lq_Const}}</td>
+                </tr>
+                <tr >
+                    <td > <input class="form-control-plaintext" type="number" name="Stator_Resistance_EEPROM_x10000" min="0" required></td>
+                    </select> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="Veh_Flux_EEPROM_x1000" min="0" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="Ld_Lq_Const_EEPROM" min="0" required> </td>
+                    <td > <input class="form-control-plaintext" type="text" name="comment"> </td>
+                </tr> 
+            </tbody>
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Kp_Current_EEPROM_x1000</th>
+                    <th>Ki_Current_EEPROM_x10000</th>
+                    <th>Gamma_Adjust_(Deg)x10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="" rowspan="" headers="">{{Kp_Current}}</td>
+                    <td colspan="" rowspan="" headers="">{{Ki_Current}}</td>
+                    <td colspan="" rowspan="" headers=""><a class="text-secondary" href="{% url 'test_app:gamma' %}">计算GAMMA角</a></td>
+                </tr>
+                <tr >
+                    <td > <input class="form-control-plaintext" type="number" name="Kp_Current_EEPROM_x1000" min="0" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="Ki_Current_EEPROM_x10000" min="0" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="Gamma_Adjust_x10" required> </td>
+                </tr> 
+            </tbody>
+        </table>
+            <div class="flex-sm-row offset-sm-11">
+                <button type="submit" class="btn btn-primary" value="submit">提交</button>
+            </div>
+    </form>
+    </div>
+    <p class="col-sm-auto"> 第一行为通过计算所得应设置值，第二行为实际设置值!</p>
+</div>
+{% endblock content %}

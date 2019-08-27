@@ -1,7 +1,7 @@
 {% extends "test_app/base.html" %}
 {% load staticfiles %}
 {% block title %}
-    电机基础信息
+    电特性试验
 {% endblock title %}
 {% block css %}
 
@@ -9,47 +9,90 @@
 {% endblock css %}
 
 {% block content %}
-
-
-    <div class="container-fluid">
-
-        <table class="table table-responsive-sm table-striped">
-            <thead>
+<div class="container-fluid">
+    <h1 class="h3 text-center">电特性试验（扭矩与电流关系）</h1>
+<form action="{% url 'test_app:currentvstorque' %}" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
                 <tr>
-                    <th>电特性试验</th>
+                    <th >转速设定值</th>
+                    <th >电流设定值</th>
+                    <th >旋转方向</th>
+                    <th >冷却温度</th>
+                    <th >冷却流量</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">转速设定值:</p></td>
-                    <td colspan="" rowspan="" headers=""><input class="form-control-plaintext" type="number" name="speed_point"></td>
-                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">电流设定值:</p></td>
-                    <td colspan="" rowspan="" headers=""><input class="form-control-plaintext" type="number" name="current_target"></td>
-                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">旋转方向:</p></td>
-                    <td colspan="" rowspan="" headers="">
+                    <td ><input class="form-control-plaintext" type="number" name="speed_point" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="current_target" required></td>
+                    <td >
                         <select class="form-control-plaintext" name="rotate_direction">
                             {% for dircvalue,dircname in forward_direction_list %}
                                 <option value="{{dircvalue}}">{{dircname}}</option>
                             {% endfor %}
                         </select>
                     </td>
-                    <td colspan="" rowspan="" headers=""><p class="form-control-plaintext">冷却介质:</p></td>
-                    <td colspan="" rowspan="" headers="">
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_temperature" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_flow" required></td>
+                </tr>
+            </tbody>
+            <thead class="thead-dark">
+                <tr>
+                    <th >冷却介质</th>
+                    <th >控制方式</th>
+                    <th>直流电压</th>
+                    <th>绕组最低温度限值</th>
+                    <th>绕组最高温度限值</th>
+                </tr>
+            </thead>
+            <body>
+                <tr>
+                    <td >
                         <select class="form-control-plaintext" name="cooling_type">
                             {% for coolvalue,coolname in cooling_type_list %}
                                 <option value="{{coolvalue}}">{{coolname}}</option>
                             {% endfor %}
                         </select>
                     </td>
+                    <td >
+                        <select class="form-control-plaintext" name="control_mode">
+                            {% for modevalue,modename in control_mode_list %}
+                                <option value="{{modevalue}}">{{modename}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td ><input class="form-control-plaintext" type="number" name="dc_bus_voltage" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_min" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_max" required></td>
+                    
                 </tr>
+            </body>
+            <thead class="thead-dark">
                 <tr>
-                    <td colspan="" rowspan="" headers=""></td>
-                    <td colspan="" rowspan="" headers=""></td>
+                    <th>扭矩命令</th>
+                    <th>扭矩测量值</th>
+                    <th>测量时温度 </th>
+                    <th>测量时相电流 </th>
+                    <th>备注</th>
                 </tr>
-            </tbody>
+            </thead>
+            <body>
+                <tr>
+                    <td ><input class="form-control-plaintext" type="number" name="torque_command" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="torque_measured" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="temperature_measured" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="phase_current_measured" required></td>
+                    <td ><input class="form-control-plaintext" type="text" name="comment"></td>
+                </tr>
+            </body>
         </table>
-
+        <div class="offset-sm-10">
+        <button class="btn btn-light" type="reset">重置</button>
+        <button class="btn btn-primary" type="submit" name="submit">提交</button> 
+        </div>
     </div>
-
+</form>
 
 {% endblock content %}

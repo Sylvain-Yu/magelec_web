@@ -1,0 +1,40 @@
+{% extends "test_app/base.html" %}
+{% load staticfiles %}
+{% block title %}
+    标定流程--gamma角
+{% endblock title %}
+{% block css %}
+    
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="container-fluid">
+    <h1 class="h3 text-center">gamma角标定</h1>
+    <form  action="{% url 'test_app:gamma' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table class="table table-responsive-sm table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Gamma_Adjust_(Deg)_x10 现有值</th>
+                    <th>1000rpm，Delta_Resolver 显示值</th>
+                    <th>Gamma_Adjust_(Deg)_x10 应调整为</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td > <input class="form-control-plaintext" type="number" name="Gamma_Adjust_now" min="0.0" required></td>
+                    </select> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="Delta_Resolver" required> </td>
+                    <td > {{gamma_ajust_after}}</td>
+                </tr> 
+            </tbody>
+        </table>
+            <div class="flex-sm-row offset-sm-11">
+                <button type="submit" class="btn btn-primary" value="submit">提交</button>
+            </div>
+    </form>
+    </div>
+    <p class="col-sm-auto"> 公式仅为正转，已自动转化为-180~180 度内</p>
+</div>
+{% endblock content %}
