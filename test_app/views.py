@@ -385,9 +385,11 @@ def calibrate(request,context):
 
         if request.method =='POST' and motorinfoobj:
             calobj = models.Calibration()
+            print(calobj)
+            print(request.POST)
             calobj.Stator_Resistance_EEPROM_x_10000 = request.POST.get('Stator_Resistance_EEPROM_x10000')
             calobj.Veh_Flux_EEPROM_web_x_1000 = request.POST.get('Veh_Flux_EEPROM_x1000')
-            calobj.Ld_Lq_Const_EEPROM_uH = request.POST('Ld_Lq_Const_EEPROM')
+            calobj.Ld_Lq_Const_EEPROM_uH = request.POST.get('Ld_Lq_Const_EEPROM')
             calobj.Kp_Current_EEPROM_x_1000 = request.POST.get('Kp_Current_EEPROM_x1000')
             calobj.Ki_Current_EEPROM_x_10000 = request.POST.get('Ki_Current_EEPROM_x10000')
             calobj.Gamma_Adjust_x_10 = request.POST.get('Gamma_Adjust_x10')

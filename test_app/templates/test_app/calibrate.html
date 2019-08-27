@@ -11,7 +11,7 @@
 <div>
     <div class="container-fluid">
     <h1 class="h3 text-center">标定流程</h1>
-    <form  action="{% url 'test_app:highspeed' %}" method="post" accept-charset="utf-8">
+    <form  action="{% url 'test_app:calibrate' %}" method="post" accept-charset="utf-8">
         {% csrf_token %}
         <table class="table table-responsive-sm table-hover">
             <thead class="thead-dark">
