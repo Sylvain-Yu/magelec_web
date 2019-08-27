@@ -33,13 +33,13 @@
                         {% for directionvalue,directionname in forward_direction_list %}
                             <option value="{{directionvalue}}">{{directionname}}</option>
                         {% endfor %}
-                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"required> </td>
                     </select> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" required></td>
-                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="env_temperature" required=""> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="env_humidity" required=""> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" required=""> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_humidity" step="0.01" required=""> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -55,12 +55,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_current" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_current" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_current" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_f_current" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_f_current" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_f_current" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_current" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_current" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_current" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_f_current" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_f_current" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_f_current" step="0.01" required></td>
                     <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment"></td>
                 </tr>
             </tbody>
@@ -74,8 +74,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_command" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_command" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" step="0.01" required></td>
 
                 </tr>
             </tbody>

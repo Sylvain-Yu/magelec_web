@@ -38,14 +38,14 @@
                         {% endfor %}
                     </select> </td>
                     <td scope="col"> <input class="form-control-plaintext" type="number" name="speed_point" min="0" required></td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="temperature_limit" required> </td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="env_temperature" required> </td>
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="temperature_limit" step="0.01" required> </td>
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" required> </td>
                     <td scope="col"> <select name="cooling_type" >
                         {% for coolvalue,coolname in cooling_type_list %}
                             <option value="{{coolvalue}}">{{coolname}}</option>
                         {% endfor %}
                     </select> </td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="cooling_flow" required> </td>
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -61,13 +61,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="cooling_temperature" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_before_1000rpm" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="temperature_before_BEMF" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_after_1000rpm" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="temperature_after_BEMF" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="RTD1_stable" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="RTD2_stable" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="cooling_temperature" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_before_1000rpm" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="temperature_before_BEMF" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_after_1000rpm" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="temperature_after_BEMF" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="RTD1_stable" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="RTD2_stable" step="0.01" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -83,13 +83,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_command" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_measured" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_bus_voltage" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_current" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="motor_efficiency" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="voltage_ph2n" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="f_voltage_ph2n" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_command" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_measured" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_bus_voltage" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_current" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="motor_efficiency" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="voltage_ph2n" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="f_voltage_ph2n" step="0.01" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -105,13 +105,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="current_ph2n" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_current_ph2n" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="power" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_power" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="pf" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_pf" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="comment" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="current_ph2n" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_current_ph2n" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="power" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_power" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="pf" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_pf" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="comment" step="0.01" required> </td>
                 </tr>
             </tbody>
         </table>

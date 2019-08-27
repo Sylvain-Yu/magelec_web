@@ -37,17 +37,17 @@
                         <option value="{{testervalue}}">{{testername}}</option>
                     {% endfor %}
                 </select> </td>
-                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_temperature" min="0" required></td>
-                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_humidity" min="0" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_temperature" min="0.0" step="0.01" required></td>
+                <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="env_humidity" min="0.0" step="0.01" required></td>
                 <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="motor_poles" min="2" required></td>
                 <td colspan="1" scope="col"><input class="form-control-plaintext" type="number" name="resolver_poles" min="2" required></td>
             </tr>
         </tbody>
         <thead class="thead-dark">
             <tr>
-                <th>电机零件号</th>
-                <th colspan="2">电机型号</th>
-                <th>电机编码</th>
+                <th>电机零件号PN</th>
+                <th colspan="2">电机型号Model</th>
+                <th>电机编码Code</th>
                 <th>三相相序</th>
                 <th>正转方向</th>
             </tr>

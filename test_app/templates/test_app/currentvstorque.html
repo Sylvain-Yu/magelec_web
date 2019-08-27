@@ -26,7 +26,7 @@
             <tbody>
                 <tr>
                     <td ><input class="form-control-plaintext" type="number" name="speed_point" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="current_target" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="current_target" step="0.01" required></td>
                     <td >
                         <select class="form-control-plaintext" name="rotate_direction">
                             {% for dircvalue,dircname in forward_direction_list %}
@@ -34,8 +34,8 @@
                             {% endfor %}
                         </select>
                     </td>
-                    <td ><input class="form-control-plaintext" type="number" name="cooling_temperature" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="cooling_flow" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_temperature" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" required></td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -63,9 +63,9 @@
                             {% endfor %}
                         </select>
                     </td>
-                    <td ><input class="form-control-plaintext" type="number" name="dc_bus_voltage" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_min" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_max" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="dc_bus_voltage" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" required></td>
                     
                 </tr>
             </body>
@@ -80,10 +80,10 @@
             </thead>
             <body>
                 <tr>
-                    <td ><input class="form-control-plaintext" type="number" name="torque_command" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="torque_measured" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="temperature_measured" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="phase_current_measured" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="torque_command" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="torque_measured" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="temperature_measured" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="phase_current_measured" step="0.01" required></td>
                     <td ><input class="form-control-plaintext" type="text" name="comment"></td>
                 </tr>
             </body>

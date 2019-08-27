@@ -27,13 +27,13 @@
             </thead>
             <tbody>
                 <tr >
-                    <td > <input class="form-control-plaintext" type="number" name="resistance_15s" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="resistance_60s" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" required></td>
-                    <td > <input class="form-control-plaintext" type="number" name="RTD1" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="RTD2" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="room_temperature" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="room_humidity" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="resistance_15s" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="resistance_60s" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" step="0.01" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="RTD1" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="RTD2" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="room_temperature" step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="room_humidity" step="0.01" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -49,13 +49,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_v" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_v_w" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_w" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_voltage" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_resistance" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_voltage" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_resistance" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_v" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_v_w" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_w" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_voltage" step="0.1" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_resistance" step="0.001" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_voltage" step="0.1" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_resistance" step="0.001" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">

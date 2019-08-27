@@ -62,7 +62,7 @@ def motor_login(request,context):
         motor_id = request.POST.get('motorindex')
         request.session['motor_id'] = motor_id
         # print(motor_id)
-        return redirect('test_app:index')
+        return redirect('test_app:dataview')
     return HttpResponse('未能成功跳转，请联系管理员！')
 
 
@@ -111,7 +111,7 @@ def shortcircuit(request,context):
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
-    return render(request,'test_app/ShortCircuit.html',context)
+    return render(request,'test_app/shortcircuit.html',context)
 
 @check_login
 @pass_info
