@@ -253,6 +253,7 @@
         <caption>反电动势测量结果 ↑</caption>
         <thead>
             <tr>
+                <th colspan="" rowspan="" headers="" scope="">转速</th>
                 <th colspan="" rowspan="" headers="" scope="">U相电压</th>
                 <th colspan="" rowspan="" headers="" scope="">V相电压</th>
                 <th colspan="" rowspan="" headers="" scope="">W相电压</th>
@@ -261,7 +262,6 @@
                 <th colspan="" rowspan="" headers="" scope="">VW线电压</th>
                 <th colspan="" rowspan="" headers="" scope="">WU线电压</th>
                 <th colspan="" rowspan="" headers="" scope="">线电压均值</th>
-                <th colspan="" rowspan="" headers="" scope="">转速</th>
                 <th colspan="" rowspan="" headers="" scope="">备注</th>
                 <th colspan="" rowspan="" headers="" scope="">创建时间</th>
             </tr>
@@ -270,6 +270,7 @@
         <tbody>
             {% for motorbemfobj in motorbemfobj_list %}
             <tr>
+                <td colspan="" rowspan="" headers="">{{motorbemfobj.speed_point}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.u_phase_voltage}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.v_phase_voltage}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.w_phase_voltage}}</td>
@@ -278,7 +279,6 @@
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.vw_phase_voltage}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.wu_phase_voltage}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.Average_3phase2phase_voltage}}</td>
-                <td colspan="" rowspan="" headers="">{{motorbemfobj.speed_point}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.comment}}</td>
                 <td colspan="" rowspan="" headers="">{{motorbemfobj.c_time}}</td>
             </tr>

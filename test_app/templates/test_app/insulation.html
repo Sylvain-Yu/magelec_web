@@ -16,11 +16,11 @@
         <table class="table table-responsive-sm table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th>15s 绕组</th>
-                    <th>60s 绕组</th>
+                    <th>15s 绝缘阻值</th>
+                    <th>60s 绝缘阻值</th>
                     <th>测量时温度</th>
-                    <th>RTD1</th>
-                    <th>RTD2</th>
+                    <th>RTD1阻值</th>
+                    <th>RTD2阻值</th>
                     <th>环境温度</th>
                     <th>环境湿度</th>
                 </tr>
@@ -38,9 +38,9 @@
             </tbody>
             <thead class="thead-dark">
                 <tr>
-                    <th>uv绕组</th>
-                    <th>vw绕组</th>
-                    <th>uw绕组</th>
+                    <th>uv绕组值</th>
+                    <th>vw绕组值</th>
+                    <th>uw绕组值</th>
                     <th>绝缘测试电压</th>
                     <th>绝缘阻值</th>
                     <th>高压测试电压</th>
@@ -52,9 +52,9 @@
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_v" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_v_w" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="winding_phase_u_w" step="0.01" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_voltage" step="0.1" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_voltage" step="0.1" value="1005" required> </td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="insulation_resistance" step="0.001" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_voltage" step="0.1" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_voltage" step="0.1" value="3005" required> </td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="hipot_resistance" step="0.001" required> </td>
                 </tr>
             </tbody>
@@ -66,7 +66,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td colspan="7"> <input class="form-control-plaintext" type="text" name="comment"></td>
+                    <td colspan="7"> <input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"></td>
                 </tr>
             </tbody>
         </table>

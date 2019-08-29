@@ -83,6 +83,10 @@ def shortcircuit(request,context):
     shortcircuitobj = models.ShortCircuit()
     context['forward_direction_list'] = shortcircuitobj.forward_direction_list
     try:
+        context['env_temperature'] = request.session.get('env_temperature')
+        context['env_humidity'] = request.session.get('env_humidity')
+        context['cond_temp_min'] = request.session.get('cond_temp_min')
+        context['cond_temp_max'] = request.session.get('cond_temp_max')
         if request.method =='POST' and motorinfoobj:
             # print(request.POST)
             shortcircuitobj.speed_point = request.POST.get('speed_point')
@@ -108,6 +112,10 @@ def shortcircuit(request,context):
             shortcircuitobj.comment = request.POST.get('comment')
             shortcircuitobj.motorinfo = motorinfoobj
             shortcircuitobj.save()
+            request.session['env_temperature'] = shortcircuitobj.env_temperature
+            request.session['env_humidity'] = shortcircuitobj.env_humidity
+            request.session['cond_temp_min'] = shortcircuitobj.winding_temperature_min
+            request.session['cond_temp_max'] = shortcircuitobj.winding_temperature_max
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
@@ -121,6 +129,10 @@ def continuous(request,context):
     context['control_mode_list'] = continuousobj.control_mode_list
     context['forward_direction_list'] = continuousobj.forward_direction_list
     context['cooling_type_list'] = continuousobj.cooling_type_list
+    context['cooling_temp'] = request.session.get('cooling_temp')
+    context['cooling_flow'] = request.session.get('cooling_flow')
+    context['dc_bus_voltage'] = request.session.get('dc_bus_voltage')
+    context['cond_temp_max'] = request.session.get('cond_temp_max')
     try:
         if request.method == 'POST' and motorinfoobj:
             continuousobj.control_mode = request.POST.get('control_mode')
@@ -153,6 +165,10 @@ def continuous(request,context):
             continuousobj.comment = request.POST.get('comment')
             continuousobj.motorinfo = motorinfoobj
             continuousobj.save()
+            request.session['cooling_temp'] = continuousobj.cooling_temperature
+            request.session['cooling_flow'] = ontinuousobj.cooling_flow
+            request.session['dc_bus_voltage'] = continuousobj.dc_bus_voltage
+            request.session['cond_temp_max'] = continuousobj.temperature_limit
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
@@ -198,6 +214,11 @@ def currentvstorque(request,context):
     context['cooling_type_list'] = cvtobj.cooling_type_list
     context['forward_direction_list'] = cvtobj.forward_direction_list
     context['control_mode_list'] = cvtobj.control_mode_list
+    context['cooling_temp'] = request.session.get('cooling_temp')
+    context['cooling_flow'] = request.session.get('cooling_flow')
+    context['dc_bus_voltage'] = request.session.get('dc_bus_voltage')
+    context['cond_temp_min'] = request.session.get('cond_temp_min')
+    context['cond_temp_max'] = request.session.get('cond_temp_max')
     try:
         if request.method =='POST' and motorinfoobj:
             cvtobj.speed_point = request.POST.get('speed_point')
@@ -222,6 +243,11 @@ def currentvstorque(request,context):
             cvtobj.comment = request.POST.get('comment')
             cvtobj.motorinfo = motorinfoobj
             cvtobj.save()
+            request.session['dc_bus_voltage'] = cvtobj.dc_bus_voltage
+            request.session['cond_temp_min'] = cvtobj.winding_temperature_min
+            request.session['cond_temp_max'] = cvtobj.winding_temperature_max
+            request.session['cooling_flow'] = cvtobj.cooling_flow
+            request.session['cooling_temp'] = cvtobj.cooling_temperature
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
@@ -233,6 +259,8 @@ def currentvstorque(request,context):
 def highspeed(request,context):
     context['forward_direction_list'] = models.HighSpeed.forward_direction_list
     motorinfoobj = context['motorinfoobj']
+    context['cooling_flow'] = request.session.get('cooling_flow')
+    context['cooling_temp'] = request.session.get('cooling_temp')
     try:
         if request.method =='POST' and motorinfoobj:
             highspeedobj = models.HighSpeed()
@@ -244,6 +272,7 @@ def highspeed(request,context):
             highspeedobj.RTD1_end_temperature = request.POST.get('RTD1_end_temperature')
             highspeedobj.RTD2_end_temperature = request.POST.get('RTD2_end_temperature')
             highspeedobj.cooling_temperature = request.POST.get('cooling_temperature')
+            highspeedobj.cooling_flow = request.POST.get('cooling_flow')
             highspeedobj.rotate_direction = request.POST.get('rotate_direction')
             highspeedobj.comment = request.POST.get('comment')
             if request.POST.get('passornot') == 'on':
@@ -252,6 +281,8 @@ def highspeed(request,context):
                 highspeedobj.passornot = False
             highspeedobj.motorinfo = motorinfoobj
             highspeedobj.save()
+            request.session['cooling_temp'] = highspeedobj.cooling_temperature
+            request.session['cooling_flow'] = highspeedobj.cooling_flow
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
@@ -287,12 +318,18 @@ def basic(request,context):
                 motorinfo.forward_direction = request.POST.get('forward_direct')
                 motorinfo.inverter_type = request.POST.get('inverter_type')
                 motorinfo.inverter_serial = request.POST.get('inverter_serial')
-                motorinfo.motor_type_options_eeprom = request.POST.get('eeprom')
+                motor_type_options_eeprom = request.POST.get('eeprom')
+                if motor_type_options_eeprom in ['34','50']:
+                    motorinfo.motor_type_options_eeprom = request.POST.get('eeprom')
+                else:
+                    motorinfo.motor_type_options_eeprom = None
                 motorinfo.comment = request.POST.get('comment')
                 motorinfo.recorder = context['user']
                 motorinfo.save()
                 # 数据留存设置
                 request.session['motor_id'] = motorinfo.id
+                request.session['env_temperature'] = motorinfo.ambient_temperature
+                request.session['env_humidity'] = motorinfo.ambient_humidity
                 return redirect('test_app:dataview')
         except Exception as e:
             print(e)
@@ -303,6 +340,8 @@ def basic(request,context):
 def bemf(request,context):
     motorinfoobj = context['motorinfoobj']
     try:
+        context['env_temperature'] = request.session.get('env_temperature')
+        context['env_humidity'] = request.session.get('env_humidity')
         if request.method =='POST' and motorinfoobj:
             bemfobj = models.BEMF()
             bemfobj.room_temperature = request.POST.get('room_temperature')
@@ -331,6 +370,8 @@ def bemf(request,context):
             bemfobj.comment = request.POST.get('comment')
             bemfobj.motorinfo = motorinfoobj
             bemfobj.save()
+            request.session['env_temperature'] = bemfobj.room_temperature
+            request.session['env_humidity'] = bemfobj.room_humidity
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)

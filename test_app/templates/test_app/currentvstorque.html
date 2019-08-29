@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td ><input class="form-control-plaintext" type="number" name="speed_point" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="speed_point" step="100" required></td>
                     <td ><input class="form-control-plaintext" type="number" name="current_target" step="0.01" required></td>
                     <td >
                         <select class="form-control-plaintext" name="rotate_direction">
@@ -34,8 +34,8 @@
                             {% endfor %}
                         </select>
                     </td>
-                    <td ><input class="form-control-plaintext" type="number" name="cooling_temperature" step="0.01" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_temperature" step="0.01" value="{{cooling_temp}}" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" value="{{cooling_flow}}" required></td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -63,9 +63,9 @@
                             {% endfor %}
                         </select>
                     </td>
-                    <td ><input class="form-control-plaintext" type="number" name="dc_bus_voltage" step="0.01" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" required></td>
-                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="dc_bus_voltage" step="0.01" value="{{dc_bus_voltage}}" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" value="{{cond_temp_min}}" required></td>
+                    <td ><input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" value="{{cond_temp_max}}" required></td>
                     
                 </tr>
             </body>
@@ -84,7 +84,7 @@
                     <td ><input class="form-control-plaintext" type="number" name="torque_measured" step="0.01" required></td>
                     <td ><input class="form-control-plaintext" type="number" name="temperature_measured" step="0.01" required></td>
                     <td ><input class="form-control-plaintext" type="number" name="phase_current_measured" step="0.01" required></td>
-                    <td ><input class="form-control-plaintext" type="text" name="comment"></td>
+                    <td ><input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"></td>
                 </tr>
             </body>
         </table>

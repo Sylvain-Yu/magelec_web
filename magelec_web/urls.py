@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from login_app import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', views.reindex),
@@ -23,4 +25,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('login_app.urls')),
     path('test/',include('test_app.urls')),
-]
+] + static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)

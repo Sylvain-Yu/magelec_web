@@ -27,25 +27,25 @@
             </thead>
             <tbody>
                 <tr >
-                    <td scope="col"> <select name="control_mode">
+                    <td scope="col"> <select class="form-control-plaintext" name="control_mode">
                         {% for controlvalue,controlname in control_mode_list %}
                             <option value="{{controlvalue}}">{{controlname}}</option>
                         {% endfor %}
                     </select> </td>
-                    <td scope="col"> <select name="rotate_direction" >
+                    <td scope="col"> <select class="form-control-plaintext" name="rotate_direction" >
                         {% for rotatevalue,rotatename in forward_direction_list %}
                             <option value="{{rotatevalue}}">{{rotatename}}</option>
                         {% endfor %}
                     </select> </td>
                     <td scope="col"> <input class="form-control-plaintext" type="number" name="speed_point" min="0" required></td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="temperature_limit" step="0.01" required> </td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" required> </td>
-                    <td scope="col"> <select name="cooling_type" >
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="temperature_limit" step="0.01" value="{{cond_temp_max}}" required> </td>
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" value="{{env_temperature}}" required> </td>
+                    <td scope="col"> <select class="form-control-plaintext" name="cooling_type" >
                         {% for coolvalue,coolname in cooling_type_list %}
                             <option value="{{coolvalue}}">{{coolname}}</option>
                         {% endfor %}
                     </select> </td>
-                    <td scope="col"> <input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" required> </td>
+                    <td scope="col"> <input class="form-control-plaintext" type="number" name="cooling_flow" step="0.01" value="{{cooling_flow}}" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -61,7 +61,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="cooling_temperature" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="cooling_temperature" step="0.01" value="{{cooling_temp}}" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_before_1000rpm" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="temperature_before_BEMF" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="BEMF_after_1000rpm" step="0.01" required> </td>
@@ -83,13 +83,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_command" step="0.01" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="torque_measured" step="0.01" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_bus_voltage" step="0.01" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="dc_current" step="0.01" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="motor_efficiency" step="0.01" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="voltage_ph2n" step="0.01" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0 type="number" name="f_voltage_ph2n" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_command" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" step="0.01" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="dc_bus_voltage" step="1" value="{{dc_bus_voltage}}" required></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="dc_current" step="0.1" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="motor_efficiency" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="voltage_ph2n" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_voltage_ph2n" step="0.01" required> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -111,7 +111,7 @@
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_power" step="0.01" required> </td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="pf" step="0.01" required> </td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="f_pf" step="0.01" required> </td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="comment" step="0.01" required> </td>
+                    <td> <input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-" required> </td>
                 </tr>
             </tbody>
         </table>

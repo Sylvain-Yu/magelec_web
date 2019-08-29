@@ -72,6 +72,7 @@ class HighSpeed(models.Model):
     RTD1_end_temperature = models.FloatField()
     RTD2_end_temperature = models.FloatField()
     cooling_temperature = models.FloatField()
+    cooling_flow = models.FloatField()
     passornot = models.BooleanField()
     comment = models.CharField(max_length=128, null=True, blank=True)
     c_time = models.DateTimeField(auto_now_add=True)

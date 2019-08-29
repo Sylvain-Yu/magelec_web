@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr >
-                    <td > <input class="form-control-plaintext" type="number" name="speed_point" min="0" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="speed_point" min="0" step="100" required> </td>
                     <td > <select class="form-control-plaintext" name="rotate_direction" >
                         {% for directionvalue,directionname in forward_direction_list %}
                             <option value="{{directionvalue}}">{{directionname}}</option>
@@ -36,10 +36,10 @@
                     </select> </td>
                     <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" step="0.01" required> </td>
                     <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"step="0.01" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" required></td>
-                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" required=""> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="env_humidity" step="0.01" required=""> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" value="{{cond_temp_min}}" required></td>
+                    <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" value="{{cond_temp_max}}" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" value="{{env_temperature}}" required=""> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="env_humidity" step="0.01" value="{{env_humidity}}" required=""> </td>
                 </tr>
             </tbody>
             <thead class="thead-dark">
@@ -61,7 +61,7 @@
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_f_current" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_f_current" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_f_current" step="0.01" required></td>
-                    <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment"></td>
+                    <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"></td>
                 </tr>
             </tbody>
         </table>
