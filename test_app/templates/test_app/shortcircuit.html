@@ -35,7 +35,7 @@
                         {% endfor %}
                     </select> </td>
                     <td > <input class="form-control-plaintext" type="number" name="temperature_measured" min="0.0" step="0.01" required> </td>
-                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"step="0.01" required> </td>
+                    <td > <input class="form-control-plaintext" type="number" name="cooling_temperature" min="0.0"step="0.01" value="{{cooling_temp}}" required> </td>
                     <td > <input class="form-control-plaintext" type="number" name="winding_temperature_min" step="0.01" value="{{cond_temp_min}}" required></td>
                     <td > <input class="form-control-plaintext" type="number" name="winding_temperature_max" step="0.01" value="{{cond_temp_max}}" required> </td>
                     <td > <input class="form-control-plaintext" type="number" name="env_temperature" step="0.01" value="{{env_temperature}}" required=""> </td>
@@ -50,7 +50,7 @@
                     <th>U相基电流</th>
                     <th>V相基电流</th>
                     <th>W相基电流</th>
-                    <th colspan="2">备注</th>
+                    <th colspan="2">扭矩测量</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,22 +61,19 @@
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="u_phase_f_current" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="v_phase_f_current" step="0.01" required></td>
                     <td> <input class="form-control-plaintext" min="0.0" type="number" name="w_phase_f_current" step="0.01" required></td>
-                    <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"></td>
+                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" step="0.01" required></td>
                 </tr>
             </tbody>
         </table>
                 <table class="table table-responsive-sm table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th>扭矩设置</th>
-                    <th>扭矩测量</th>
+                    <th>备注</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_command" step="0.01" required></td>
-                    <td> <input class="form-control-plaintext" min="0.0" type="number" name="torque_measured" step="0.01" required></td>
-
+                    <td colspan="2"> <input class="form-control-plaintext" type="text" name="comment" placeholder="-非必须-"></td>
                 </tr>
             </tbody>
         </table>

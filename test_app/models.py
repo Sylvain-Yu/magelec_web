@@ -153,7 +153,6 @@ class ShortCircuit(models.Model):
     v_phase_f_current = models.FloatField()
     w_phase_f_current = models.FloatField()
     average_phase_f_current = models.FloatField()
-    torque_command = models.FloatField()
     torque_measured = models.FloatField()
     temperature_measured = models.FloatField()
     comment = models.CharField(max_length=128, null=True, blank=True)

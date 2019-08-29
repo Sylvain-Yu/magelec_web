@@ -59,7 +59,7 @@ def register(request):
             userobj.email = email
             userobj.sex = sex
             userobj.save()
-            redirect('login_app:index')
+            return redirect('login_app:index')
         else:
             message = '两次密码不一致/邀请码不正确！'
     return render(request,'login_app/register.html',context)

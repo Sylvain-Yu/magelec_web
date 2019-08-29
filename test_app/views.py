@@ -83,6 +83,7 @@ def shortcircuit(request,context):
     shortcircuitobj = models.ShortCircuit()
     context['forward_direction_list'] = shortcircuitobj.forward_direction_list
     try:
+        context['cooling_temp'] = request.session.get('cooling_temp')
         context['env_temperature'] = request.session.get('env_temperature')
         context['env_humidity'] = request.session.get('env_humidity')
         context['cond_temp_min'] = request.session.get('cond_temp_min')
@@ -106,7 +107,6 @@ def shortcircuit(request,context):
             shortcircuitobj.w_phase_f_current = request.POST.get('w_phase_f_current')
             shortcircuitobj.average_phase_f_current = (float(request.POST.get('u_phase_f_current'))+
             float(request.POST.get('v_phase_f_current'))+float(request.POST.get('w_phase_f_current')))/3
-            shortcircuitobj.torque_command = request.POST.get('torque_command')
             shortcircuitobj.torque_measured = request.POST.get('torque_measured')
             shortcircuitobj.temperature_measured = request.POST.get('temperature_measured')
             shortcircuitobj.comment = request.POST.get('comment')
@@ -116,6 +116,7 @@ def shortcircuit(request,context):
             request.session['env_humidity'] = shortcircuitobj.env_humidity
             request.session['cond_temp_min'] = shortcircuitobj.winding_temperature_min
             request.session['cond_temp_max'] = shortcircuitobj.winding_temperature_max
+            request.session['cooling_temp'] = shortcircuitobj.cooling_temperature
             return redirect('test_app:dataview')
     except Exception as e:
         print(e)
@@ -345,7 +346,7 @@ def bemf(request,context):
         if request.method =='POST' and motorinfoobj:
             bemfobj = models.BEMF()
             bemfobj.room_temperature = request.POST.get('room_temperature')
-            bemfobj.room_humidity = request.POST.get('room_temperature')
+            bemfobj.room_humidity = request.POST.get('room_humidity')
             speed_point = request.POST.get('speed_point')
             bemfobj.speed_point = speed_point
             u_phase_voltage = request.POST.get('u_phase_voltage')
