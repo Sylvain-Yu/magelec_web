@@ -2,7 +2,7 @@
 # @Author: Sylvain-Yu
 # @Date:   2019-07-12 17:13:07
 # @Last Modified by:   Sylvain-Yu
-# @Last Modified time: 2019-08-27 10:35:47
+# @Last Modified time: 2019-08-30 08:54:07
 from django.urls import path
 from . import views
 app_name ='test_app'
@@ -22,5 +22,6 @@ urlpatterns = [
     path('bemf/',views.bemf, name = 'bemf'),
     path('calibrate/',views.calibrate, name = 'calibrate'),
     path('gamma/',views.gamma, name = 'gamma'),
+    path('efficiency/',views.efficiency, name ='efficiency'),
 
 ]

@@ -443,6 +443,14 @@ def calibrate(request,context):
         print(e)
     return render(request,'test_app/calibrate.html',context)
 
+
+@pass_info
+@check_login
+def efficiency(request,context):
+    pass
+    return render(request,'test_app/efficiency.html',context)
+
+
 @pass_info
 @check_login
 def gamma(request,context):
