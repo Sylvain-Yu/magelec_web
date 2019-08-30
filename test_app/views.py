@@ -47,6 +47,8 @@ def dataview(request,context):
             context['motorbemfobj_list'] = motorbemfobj_list
             motorcalibrateobj_list = motorinfoobj.calibration_set.all()
             context['motorcalibrateobj_list'] = motorcalibrateobj_list
+            motorconti_list = motorinfoobj.continuous_set.all()
+            context['motorcontiobj_list'] = motorconti_list
     except Exception as e:
         print(e)
     return render(request,'test_app/dataview.html',context)

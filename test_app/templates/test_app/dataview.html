@@ -317,5 +317,36 @@
         </tbody>
     </table>
 {% endif %}
+{% if motorcontiobj_list %}
+    <table class="table table-hover table-responsive-sm">
+        <caption>连续扭矩结果 ↑</caption>
+        <thead>
+            <tr>
+                <th colspan="" rowspan="" headers="" scope="">转速点</th>
+                <th colspan="" rowspan="" headers="" scope="">扭矩命令</th>
+                <th colspan="" rowspan="" headers="" scope="">扭矩测量值</th>
+                <th colspan="" rowspan="" headers="" scope="">直流电压</th>
+                <th colspan="" rowspan="" headers="" scope="">电机效率</th>
+                <th colspan="" rowspan="" headers="" scope="">冷却温度</th>
+                <th colspan="" rowspan="" headers="" scope="">备注</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for motorcontiobj in motorcontiobj_list %}
+            <tr>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.speed_point}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.torque_command}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.torque_measured}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.dc_bus_voltage}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.motor_efficiency}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.cooling_temperature}}</td>
+                <td colspan="" rowspan="" headers="">{{motorcontiobj.comment}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
 </body>
 {% endblock content %}
