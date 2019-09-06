@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ohe5qbyg(easyeo2)+*-e)s8tm&*9*0^u%wveul3gq#m#t7_r_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.sylvain.tech','127.0.0.1']
 

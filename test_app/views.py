@@ -113,6 +113,9 @@ def shortcircuit(request,context):
             shortcircuitobj.temperature_measured = request.POST.get('temperature_measured')
             shortcircuitobj.comment = request.POST.get('comment')
             shortcircuitobj.motorinfo = motorinfoobj
+            shortcircuitobj.motor_PN = motorinfoobj.motor_PN
+            shortcircuitobj.motor_model = motorinfoobj.motor_model
+            shortcircuitobj.motor_code = motorinfoobj.motor_code
             shortcircuitobj.save()
             request.session['env_temperature'] = shortcircuitobj.env_temperature
             request.session['env_humidity'] = shortcircuitobj.env_humidity
@@ -167,6 +170,9 @@ def continuous(request,context):
             continuousobj.motor_efficiency = request.POST.get('motor_efficiency')
             continuousobj.comment = request.POST.get('comment')
             continuousobj.motorinfo = motorinfoobj
+            continuousobj.motor_PN = motorinfoobj.motor_PN
+            continuousobj.motor_model = motorinfoobj.motor_model
+            continuousobj.motor_code = motorinfoobj.motor_code
             continuousobj.save()
             request.session['cooling_temp'] = continuousobj.cooling_temperature
             request.session['cooling_flow'] = ontinuousobj.cooling_flow
@@ -203,6 +209,9 @@ def insulation(request,context):
             insulationobj.comment = request.POST.get('comment')
             insulationobj.recorder = context['user']
             insulationobj.motorinfo = motorinfoobj
+            insulationobj.motor_PN = motorinfoobj.motor_PN
+            insulationobj.motor_model = motorinfoobj.motor_model
+            insulationobj.motor_code = motorinfoobj.motor_code
             insulationobj.save()
             return redirect('test_app:dataview')
     except Exception as e:
@@ -245,6 +254,9 @@ def currentvstorque(request,context):
             cvtobj.Ke = kt/3**0.5
             cvtobj.comment = request.POST.get('comment')
             cvtobj.motorinfo = motorinfoobj
+            cvtobj.motor_PN = motorinfoobj.motor_PN
+            cvtobj.motor_model = motorinfoobj.motor_model
+            cvtobj.motor_code = motorinfoobj.motor_code
             cvtobj.save()
             request.session['dc_bus_voltage'] = cvtobj.dc_bus_voltage
             request.session['cond_temp_min'] = cvtobj.winding_temperature_min
@@ -283,6 +295,9 @@ def highspeed(request,context):
             else:
                 highspeedobj.passornot = False
             highspeedobj.motorinfo = motorinfoobj
+            highspeedobj.motor_PN = motorinfoobj.motor_PN
+            highspeedobj.motor_model = motorinfoobj.motor_model
+            highspeedobj.motor_code = motorinfoobj.motor_code
             highspeedobj.save()
             request.session['cooling_temp'] = highspeedobj.cooling_temperature
             request.session['cooling_flow'] = highspeedobj.cooling_flow
@@ -372,6 +387,9 @@ def bemf(request,context):
             bemfobj.ke = str((float(speed_point)/376.8)/float(Average_3phase2phase_voltage))
             bemfobj.comment = request.POST.get('comment')
             bemfobj.motorinfo = motorinfoobj
+            bemfobj.motor_PN = motorinfoobj.motor_PN
+            bemfobj.motor_model = motorinfoobj.motor_model
+            bemfobj.motor_code = motorinfoobj.motor_code
             bemfobj.save()
             request.session['env_temperature'] = bemfobj.room_temperature
             request.session['env_humidity'] = bemfobj.room_humidity
@@ -438,6 +456,9 @@ def calibrate(request,context):
             calobj.Gamma_Adjust_x_10 = request.POST.get('Gamma_Adjust_x10')
             calobj.comment = request.POST.get('comment')
             calobj.motorinfo = motorinfoobj
+            calobj.motor_PN = motorinfoobj.motor_PN
+            calobj.motor_model = motorinfoobj.motor_model
+            calobj.motor_code = motorinfoobj.motor_code
             calobj.save()
             return redirect('test_app:dataview')
     except Exception as e:
@@ -485,6 +506,6 @@ def search(request,context):
         motor_model_search = request.POST.get('motor_model_search')
         motor_code_search = request.POST.get('motor_code_search')
         # print(motor_PN_search,motor_model_search,motor_code_search)
-        motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__icontains = motor_PN_search,motor_model__contains = motor_model_search,motor_code__contains = motor_code_search).all()
+        motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__icontains = motor_PN_search,motor_model__icontains = motor_model_search,motor_code__icontains = motor_code_search).all()
         context['motorinfoobj_list'] = motorinfoobj_list
     return render(request,'test_app/search.html',context)
