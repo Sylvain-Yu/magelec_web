@@ -385,52 +385,51 @@ def bemf(request,context):
 @pass_info
 def calibrate(request,context):
     motorinfoobj = context['motorinfoobj']
+    if motorinfoobj.insulation_set.all().first():
+        insulationobj = motorinfoobj.insulation_set.all().first()
+        uv = float(insulationobj.winding_phase_u_v)
+        vw = float(insulationobj.winding_phase_v_w)
+        wu = float(insulationobj.winding_phase_u_w)
+        u = (wu + (uv - vw))/2
+        v = (uv - u)
+        w = (wu - u)
+        _,winding_average = math.modf((u + v + w)*10/3)
+        winding_average = str(int(winding_average))
+        context['winding_average'] = winding_average
+
+        if motorinfoobj.bemf_set.filter(speed_point = '1000').first():
+            bemfobj = motorinfoobj.bemf_set.filter(speed_point = '1000').first()
+            u_phase_voltage = float(bemfobj.u_phase_voltage)
+            v_phase_voltage = float(bemfobj.v_phase_voltage)
+            w_phase_voltage = float(bemfobj.w_phase_voltage)
+            motor_elec_speed = float(bemfobj.speed_point) * math.pi * float(motorinfoobj.motor_poles)/60
+            veh_flux = str(round(float(bemfobj.Average_3phase_voltage)* math.sqrt(2)/motor_elec_speed * 1000))
+            context['veh_flux'] = veh_flux
+
+            if motorinfoobj.shortcircuit_set.all().first():
+                shortcircuitobj = motorinfoobj.shortcircuit_set.filter(speed_point= '1000').first()
+                u_phase_current = float(shortcircuitobj.u_phase_current)
+                v_phase_current = float(shortcircuitobj.v_phase_current)
+                w_phase_current = float(shortcircuitobj.w_phase_current)
+                # print(u_phase_voltage,u_phase_current,u,motor_elec_speed)
+                inductance_U = math.sqrt((u_phase_voltage/u_phase_current)**2-(u/1000)**2)/motor_elec_speed
+                inductance_V = math.sqrt((v_phase_voltage/v_phase_current)**2-(v/1000)**2)/motor_elec_speed
+                inductance_W = math.sqrt((w_phase_voltage/w_phase_current)**2-(u/1000)**2)/motor_elec_speed
+                # print(inductance_U)
+                Ld_Lq_Const = round((inductance_U + inductance_V + inductance_W)*1000000/3)
+                context['Ld_Lq_Const'] = Ld_Lq_Const
+                w1 = int(winding_average)/10000/(Ld_Lq_Const/1000000)
+                kp = (Ld_Lq_Const/1000000)*w1/(200/300)
+                ki = kp * w1/12000
+                Kp_Current = round(kp * 1000)
+                Ki_Current = round(ki * 10000)
+                context['Kp_Current'] = str(Kp_Current)
+                context['Ki_Current'] = str(Ki_Current)
     try:
-        if motorinfoobj.insulation_set.all().first():
-            insulationobj = motorinfoobj.insulation_set.all().first()
-            uv = float(insulationobj.winding_phase_u_v)
-            vw = float(insulationobj.winding_phase_v_w)
-            wu = float(insulationobj.winding_phase_u_w)
-            u = (wu + (uv - vw))/2
-            v = (uv - u)
-            w = (wu - u)
-            _,winding_average = math.modf((u + v + w)*10/3)
-            winding_average = str(int(winding_average))
-            context['winding_average'] = winding_average
-
-            if motorinfoobj.bemf_set.filter(speed_point = '1000').first():
-                bemfobj = motorinfoobj.bemf_set.filter(speed_point = '1000').first()
-                u_phase_voltage = float(bemfobj.u_phase_voltage)
-                v_phase_voltage = float(bemfobj.v_phase_voltage)
-                w_phase_voltage = float(bemfobj.w_phase_voltage)
-                motor_elec_speed = float(bemfobj.speed_point) * math.pi * float(motorinfoobj.motor_poles)/60
-                veh_flux = str(round(float(bemfobj.Average_3phase_voltage)* math.sqrt(2)/motor_elec_speed * 1000))
-                context['veh_flux'] = veh_flux
-
-                if motorinfoobj.shortcircuit_set.all().first():
-                    shortcircuitobj = motorinfoobj.shortcircuit_set.filter(speed_point= '1000').first()
-                    u_phase_current = float(shortcircuitobj.u_phase_current)
-                    v_phase_current = float(shortcircuitobj.v_phase_current)
-                    w_phase_current = float(shortcircuitobj.w_phase_current)
-                    # print(u_phase_voltage,u_phase_current,u,motor_elec_speed)
-                    inductance_U = math.sqrt((u_phase_voltage/u_phase_current)**2-(u/1000)**2)/motor_elec_speed
-                    inductance_V = math.sqrt((v_phase_voltage/v_phase_current)**2-(v/1000)**2)/motor_elec_speed
-                    inductance_W = math.sqrt((w_phase_voltage/w_phase_current)**2-(u/1000)**2)/motor_elec_speed
-                    # print(inductance_U)
-                    Ld_Lq_Const = round((inductance_U + inductance_V + inductance_W)*1000000/3)
-                    context['Ld_Lq_Const'] = Ld_Lq_Const
-                    w1 = int(winding_average)/10000/(Ld_Lq_Const/1000000)
-                    kp = (Ld_Lq_Const/1000000)*w1/(200/300)
-                    ki = kp * w1/12000
-                    Kp_Current = round(kp * 1000)
-                    Ki_Current = round(ki * 10000)
-                    context['Kp_Current'] = str(Kp_Current)
-                    context['Ki_Current'] = str(Ki_Current)
-
         if request.method =='POST' and motorinfoobj:
             calobj = models.Calibration()
-            print(calobj)
-            print(request.POST)
+            # print(calobj)
+            # print(request.POST)
             calobj.Stator_Resistance_EEPROM_x_10000 = request.POST.get('Stator_Resistance_EEPROM_x10000')
             calobj.Veh_Flux_EEPROM_web_x_1000 = request.POST.get('Veh_Flux_EEPROM_x1000')
             calobj.Ld_Lq_Const_EEPROM_uH = request.POST.get('Ld_Lq_Const_EEPROM')

@@ -26,6 +26,7 @@ class MotorInfo(models.Model):
                           ('EMSISO EM500', 'EMSISO EM500'),
                           ('EMSISO EM100', 'EMSISO EM100'),
                           ('EMSISO EM200', 'EMSISO EM200'),
+                          ('EMSISO EM250', 'EMSISO EM250'),
                           ('unknown', '其他'),
                           )
     inverter_type = models.CharField(max_length=32, choices=inverter_type_list)
@@ -60,6 +61,9 @@ class MotorInfo(models.Model):
 
 
 class HighSpeed(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     speed = models.IntegerField()
     run_time = models.DurationField()
     forward_direction_list = (('Positive', '正转'),
@@ -86,12 +90,17 @@ class HighSpeed(models.Model):
 
     def __str__(self):
         if self.comment:
-            return str(self.speed) + 'rpm_' + str(self.c_time)+' | Remark: ' + self.comment
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code +' ' +str(self.speed) + ' | Remark: ' + self.comment
         else:
-            return str(self.speed) + 'rpm_' + str(self.c_time)
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code\
+             + ' ' + str(self.speed)
 
 
 class CurrentVsTorque(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     speed_point = models.IntegerField()
     current_target = models.IntegerField(null=True)
     forward_direction_list = (('Positive', '正转'),
@@ -131,9 +140,17 @@ class CurrentVsTorque(models.Model):
         verbose_name_plural = "电特性试验"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code +' ' +str(self.speed_point) + ' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code\
+             + ' ' + str(self.speed_point)
 
 class ShortCircuit(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     speed_point = models.IntegerField()
     cooling_temperature = models.FloatField()
     winding_temperature_min = models.FloatField()
@@ -166,9 +183,17 @@ class ShortCircuit(models.Model):
         verbose_name_plural = "短路试验"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code +' ' +str(self.speed_point) + ' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code\
+             + ' ' + str(self.speed_point)
 
 class Insulation(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     resistance_15s = models.FloatField()
     resistance_60s = models.FloatField()
     temperature_measured = models.FloatField()
@@ -195,9 +220,16 @@ class Insulation(models.Model):
         verbose_name_plural = "绝缘测试"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code+' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code
 
 class Continuous(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     control_mode_list = (('Traction_Torque', '扭矩模式_主转'),
                      ('Traction_Speed', '转速模式_主转'),
                      ('Generation_Torque', '扭矩模式_跟转'),
@@ -247,9 +279,17 @@ class Continuous(models.Model):
         verbose_name_plural = "连续试验"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code +' ' +str(self.speed_point) + ' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code\
+             + ' ' + str(self.speed_point)
 
 class BEMF(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     room_temperature = models.FloatField()
     room_humidity = models.FloatField()
     speed_point = models.IntegerField()
@@ -274,9 +314,17 @@ class BEMF(models.Model):
         verbose_name_plural = "反电动势测量"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code +' ' +str(self.speed_point) + ' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code\
+             + ' ' + str(self.speed_point)
         
 class Calibration(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
     Stator_Resistance_EEPROM_x_10000 = models.IntegerField()
     Veh_Flux_EEPROM_web_x_1000 =  models.IntegerField()
     Ld_Lq_Const_EEPROM_uH = models.IntegerField()
@@ -294,4 +342,8 @@ class Calibration(models.Model):
         verbose_name_plural = "校准"
 
     def __str__(self):
-        return str(self.c_time)
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code+' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code
