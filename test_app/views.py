@@ -250,8 +250,8 @@ def currentvstorque(request,context):
             phase_current_measured = float(request.POST.get('phase_current_measured'))
             torque_measured = float(request.POST.get('torque_command'))
             kt = torque_measured / phase_current_measured
-            cvtobj.Kt = kt
-            cvtobj.Ke = kt/3**0.5
+            cvtobj.Kt = str(kt)
+            cvtobj.Ke = str(kt/3**0.5)
             cvtobj.comment = request.POST.get('comment')
             cvtobj.motorinfo = motorinfoobj
             cvtobj.motor_PN = motorinfoobj.motor_PN
