@@ -130,7 +130,7 @@ def shortcircuit(request,context):
 @check_login
 @pass_info
 def continuous(request,context):
-    motorinfo = context['motorinfoobj']
+    motorinfoobj = context['motorinfoobj']
     continuousobj = models.Continuous()
     context['control_mode_list'] = continuousobj.control_mode_list
     context['forward_direction_list'] = continuousobj.forward_direction_list
@@ -175,7 +175,7 @@ def continuous(request,context):
             continuousobj.motor_code = motorinfoobj.motor_code
             continuousobj.save()
             request.session['cooling_temp'] = continuousobj.cooling_temperature
-            request.session['cooling_flow'] = ontinuousobj.cooling_flow
+            request.session['cooling_flow'] = continuousobj.cooling_flow
             request.session['dc_bus_voltage'] = continuousobj.dc_bus_voltage
             request.session['cond_temp_max'] = continuousobj.temperature_limit
             return redirect('test_app:dataview')
