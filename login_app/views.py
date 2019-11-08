@@ -37,7 +37,9 @@ def login(request):
         username = username.strip()
         password = request.POST.get('password')
         user = models.User.objects.filter(name = username).first()
-        if user.name == username and user.password == password:
+        if user == None:
+            render(request,'login_app/login.html')
+        elif user.name == username and user.password == password:
             request.session['is_login'] = '1'
             request.session['user_id'] = user.id
             return redirect('login_app:index')

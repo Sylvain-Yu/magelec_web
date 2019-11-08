@@ -248,10 +248,11 @@ def currentvstorque(request,context):
             cvtobj.torque_command = request.POST.get('torque_command')
             cvtobj.torque_measured = request.POST.get('torque_measured')
             phase_current_measured = float(request.POST.get('phase_current_measured'))
-            torque_measured = float(request.POST.get('torque_command'))
+            torque_measured = float(request.POST.get('torque_measured'))
             kt = torque_measured / phase_current_measured
             cvtobj.Kt = str(kt)
             cvtobj.Ke = str(kt/3**0.5)
+            print(kt)
             cvtobj.comment = request.POST.get('comment')
             cvtobj.motorinfo = motorinfoobj
             cvtobj.motor_PN = motorinfoobj.motor_PN
@@ -403,6 +404,8 @@ def bemf(request,context):
 @pass_info
 def calibrate(request,context):
     motorinfoobj = context['motorinfoobj']
+    if motorinfoobj == None:
+        return redirect('test_app:basic')
     if motorinfoobj.insulation_set.all().first():
         insulationobj = motorinfoobj.insulation_set.all().first()
         uv = float(insulationobj.winding_phase_u_v)
@@ -507,5 +510,5 @@ def search(request,context):
         motor_code_search = request.POST.get('motor_code_search')
         # print(motor_PN_search,motor_model_search,motor_code_search)
         motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__icontains = motor_PN_search,motor_model__icontains = motor_model_search,motor_code__icontains = motor_code_search).all()
-        context['motorinfoobj_list'] = motorinfoobj_list
+        context['motorinfoobj_list'] = motorinfoobj_list[:5]
     return render(request,'test_app/search.html',context)

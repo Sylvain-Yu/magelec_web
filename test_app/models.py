@@ -347,3 +347,24 @@ class Calibration(models.Model):
                 self.motor_code+' | Remark: ' + self.comment
         else:
             return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code
+
+class TestData(models.Model):
+    RTD1 = models.FloatField()
+    RTD2 = models.FloatField()
+    Speed = models.FloatField()
+    Torque = models.FloatField()
+
+    class Meta:
+        ordering = ['-c_time']
+        verbose_name = "原始数据"
+        verbose_name_plural = "原始数据"
+
+    def __str__(self):
+        if self.comment:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + \
+                self.motor_code+' | Remark: ' + self.comment
+        else:
+            return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code
+
+
+
