@@ -59,7 +59,7 @@ class CalibrationInfo(admin.ModelAdmin):
     list_per_page = 50
     date_hierarchy = 'c_time'
 
-class TestDataInfo(admin.ModelAdmin):
+class AssembleInfo(admin.ModelAdmin):
     list_display = ['motor_PN','motor_model','motor_code','c_time','comment']
     search_fields = ['motor_PN','motor_model','motor_code']
     empty_value_display = '-空白-'
@@ -76,4 +76,4 @@ admin.site.register(models.Insulation,InsulationInfo)
 admin.site.register(models.Continuous,ContinuousInfo)
 admin.site.register(models.BEMF,BEMF_Info)
 admin.site.register(models.Calibration,CalibrationInfo)
-admin.site.register(models.TestData,TestDataInfo)
+admin.site.register(models.Assemble,AssembleInfo)

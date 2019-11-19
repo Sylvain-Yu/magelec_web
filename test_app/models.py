@@ -125,8 +125,8 @@ class CurrentVsTorque(models.Model):
     dc_bus_voltage = models.IntegerField()
     temperature_measured = models.FloatField(null=True)
     phase_current_measured = models.FloatField(null=True)
-    torque_command = models.IntegerField(null=True)
-    torque_measured = models.IntegerField(null=True)
+    torque_command = models.FloatField(null=True)
+    torque_measured = models.FloatField(null=True)
     Kt = models.FloatField(null=True)
     Ke = models.FloatField(null=True)
     comment = models.CharField(max_length=128, null=True, blank=True)
@@ -348,16 +348,23 @@ class Calibration(models.Model):
         else:
             return self.motor_PN + ' ' + self.motor_model + ' ' + self.motor_code
 
-class TestData(models.Model):
-    RTD1 = models.FloatField()
-    RTD2 = models.FloatField()
-    Speed = models.FloatField()
-    Torque = models.FloatField()
+class Assemble(models.Model):
+    motor_PN = models.CharField(max_length=32)
+    motor_model = models.CharField(max_length=32)
+    motor_code = models.CharField(max_length=32)
+    Phase_diff = models.FloatField()
+    phase_Un = models.FloatField()
+    phase_Vn = models.FloatField()
+    phase_Wn = models.FloatField()
+    comment = models.CharField(max_length=128, null=True, blank=True)
+    c_time = models.DateTimeField(auto_now_add=True)
+    modify_time = models.DateTimeField(auto_now=True)
+    motorinfo = models.ForeignKey(MotorInfo,on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-c_time']
-        verbose_name = "原始数据"
-        verbose_name_plural = "原始数据"
+        verbose_name = "装配信息"
+        verbose_name_plural = "装配信息"
 
     def __str__(self):
         if self.comment:

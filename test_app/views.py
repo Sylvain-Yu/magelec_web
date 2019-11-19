@@ -21,7 +21,7 @@ def pass_info(f):
         user_id1 = request.session.get('user_id')
         motor_id_text = request.session.get('motor_id')
         userobj = login_app_models.User.objects.filter(id = user_id1).first()
-        motorinfoobj =models.MotorInfo.objects.filter(id=motor_id_text).first()
+        motorinfoobj = models.MotorInfo.objects.filter(id=motor_id_text).first()
         # print(motorinfoobj)
         context = {'user':userobj,'motorinfoobj':motorinfoobj}
         return f(request,*arg,context)
@@ -510,5 +510,5 @@ def search(request,context):
         motor_code_search = request.POST.get('motor_code_search')
         # print(motor_PN_search,motor_model_search,motor_code_search)
         motorinfoobj_list = models.MotorInfo.objects.filter(motor_PN__icontains = motor_PN_search,motor_model__icontains = motor_model_search,motor_code__icontains = motor_code_search).all()
-        context['motorinfoobj_list'] = motorinfoobj_list[:5]
+        context['motorinfoobj_list'] = motorinfoobj_list[:20]
     return render(request,'test_app/search.html',context)

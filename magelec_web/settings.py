@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'magelec', #暂定
         'PASSWORD': 'magelec', #暂定
-        'HOST': '127.0.0.1',
+        'HOST': '10.8.0.99',
         'PORT': '3306',
         'TEST':{
             'CHARSET':'utf8',
